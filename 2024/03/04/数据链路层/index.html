@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计算机网络：数据链路层 | C3ngH's B10g</title><meta name="author" content="C3ngH"><meta name="copyright" content="C3ngH"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="计算机网络相关链接：物理层 | hikhuu’s blog 计算机网络概述 | hikhuu’s blog 数据链路层的概念数据链路层是OSI模型，即开放式通信系统互联参考模型（Open System Interconnection Reference Model）中的第二层，它负责在物理层提供的基本连接上建立可靠的数据链路。该层的主要任务是将数据帧从一个物理节点传输到另一个物理节点，通过物理介质">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计算机网络：数据链路层 | C3ngH's B10g</title><meta name="author" content="C3ngH"><meta name="copyright" content="C3ngH"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="计算机网络相关链接： 物理层 | hikhuu’s blog 计算机网络概述 | hikhuu’s blog  数据链路层的概念 数据链路层是OSI模型，即开放式通信系统互联参考模型（Open System Interconnection Reference Model）中的第二层，它负责在物理层提供的基本连接上建立可靠的数据链路。该层的主要任务是将数据帧从一个物理节点传输到另一个物理节点，通过">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络：数据链路层">
 <meta property="og:url" content="https://www.c3ngh.top/2024/03/04/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/index.html">
 <meta property="og:site_name" content="C3ngH&#39;s B10g">
-<meta property="og:description" content="计算机网络相关链接：物理层 | hikhuu’s blog 计算机网络概述 | hikhuu’s blog 数据链路层的概念数据链路层是OSI模型，即开放式通信系统互联参考模型（Open System Interconnection Reference Model）中的第二层，它负责在物理层提供的基本连接上建立可靠的数据链路。该层的主要任务是将数据帧从一个物理节点传输到另一个物理节点，通过物理介质">
+<meta property="og:description" content="计算机网络相关链接： 物理层 | hikhuu’s blog 计算机网络概述 | hikhuu’s blog  数据链路层的概念 数据链路层是OSI模型，即开放式通信系统互联参考模型（Open System Interconnection Reference Model）中的第二层，它负责在物理层提供的基本连接上建立可靠的数据链路。该层的主要任务是将数据帧从一个物理节点传输到另一个物理节点，通过">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://c3ngh-blog.oss-cn-hangzhou.aliyuncs.com/img/C3ngH.jpg">
 <meta property="article:published_time" content="2024-03-04T08:26:36.000Z">
@@ -157,339 +157,497 @@
         }
       }
       detectApple()
-    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://c3ngh-blog.oss-cn-hangzhou.aliyuncs.com/img/C3ngH.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://c3ngh-blog.oss-cn-hangzhou.aliyuncs.com/img/Topimg.heic')"><nav id="nav"><span id="blog-info"><a href="/" title="C3ngH's B10g"><span class="site-name">C3ngH's B10g</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">计算机网络：数据链路层</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-04T08:26:36.000Z" title="发表于 2024-03-04 16:26:36">2024-03-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-03-04T10:42:47.571Z" title="更新于 2024-03-04 18:42:47">2024-03-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="计算机网络：数据链路层"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="计算机网络相关链接："><a href="#计算机网络相关链接：" class="headerlink" title="计算机网络相关链接："></a>计算机网络相关链接：</h3><p><a target="_blank" rel="noopener" href="https://h1khuu.github.io/2024/02/09/%E7%89%A9%E7%90%86%E5%B1%82/">物理层 | hikhuu’s blog</a></p>
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://c3ngh-blog.oss-cn-hangzhou.aliyuncs.com/img/C3ngH.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://c3ngh-blog.oss-cn-hangzhou.aliyuncs.com/img/Topimg.heic')"><nav id="nav"><span id="blog-info"><a href="/" title="C3ngH's B10g"><span class="site-name">C3ngH's B10g</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">计算机网络：数据链路层</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-04T08:26:36.000Z" title="发表于 2024-03-04 16:26:36">2024-03-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-03-04T10:42:47.571Z" title="更新于 2024-03-04 18:42:47">2024-03-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="计算机网络：数据链路层"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="计算机网络相关链接"><a class="markdownIt-Anchor" href="#计算机网络相关链接"></a> 计算机网络相关链接：</h3>
+<p><a target="_blank" rel="noopener" href="https://h1khuu.github.io/2024/02/09/%E7%89%A9%E7%90%86%E5%B1%82/">物理层 | hikhuu’s blog</a></p>
 <p><a target="_blank" rel="noopener" href="https://h1khuu.github.io/2024/02/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/">计算机网络概述 | hikhuu’s blog</a></p>
-<h3 id="数据链路层的概念"><a href="#数据链路层的概念" class="headerlink" title="数据链路层的概念"></a>数据链路层的概念</h3><p>数据链路层是<strong>OSI模型</strong>，即<strong>开放式通信系统互联参考模型（Open System Interconnection Reference Model）</strong>中的<strong>第二层</strong>，它负责在物理层提供的基本连接上建立可靠的数据链路。该层的主要任务是将数据帧从一个物理节点传输到另一个物理节点，通过物理介质（例如电缆、光纤或无线信道）传送数据。</p>
-<h3 id="使用点对点信道的数据链路层"><a href="#使用点对点信道的数据链路层" class="headerlink" title="使用点对点信道的数据链路层"></a>使用点对点信道的数据链路层</h3><p>使用点对点信道的数据链路层主要涉及两个设备之间的直接通信，而不涉及多个设备之间的共享通信。点对点信道通常是指两个设备之间建立的直接连接，这可以是通过物理介质（如串口线）或逻辑连接（如虚拟专用网络）实现的。</p>
+<h3 id="数据链路层的概念"><a class="markdownIt-Anchor" href="#数据链路层的概念"></a> 数据链路层的概念</h3>
+<p>数据链路层是<strong>OSI模型</strong>，即<strong>开放式通信系统互联参考模型（Open System Interconnection Reference Model）<strong>中的</strong>第二层</strong>，它负责在物理层提供的基本连接上建立可靠的数据链路。该层的主要任务是将数据帧从一个物理节点传输到另一个物理节点，通过物理介质（例如电缆、光纤或无线信道）传送数据。</p>
+<h3 id="使用点对点信道的数据链路层"><a class="markdownIt-Anchor" href="#使用点对点信道的数据链路层"></a> 使用点对点信道的数据链路层</h3>
+<p>使用点对点信道的数据链路层主要涉及两个设备之间的直接通信，而不涉及多个设备之间的共享通信。点对点信道通常是指两个设备之间建立的直接连接，这可以是通过物理介质（如串口线）或逻辑连接（如虚拟专用网络）实现的。</p>
 <p>以下是使用点对点信道的数据链路层的主要特点：</p>
 <ul>
-<li><p><strong>直接连接：</strong> 数据链路层在点对点信道中负责建立直接连接，确保两个设备之间的通信。这种连接通常是点对点通信的一部分，其中一个设备是发送方，另一个是接收方。</p>
+<li>
+<p><strong>直接连接：</strong> 数据链路层在点对点信道中负责建立直接连接，确保两个设备之间的通信。这种连接通常是点对点通信的一部分，其中一个设备是发送方，另一个是接收方。</p>
 </li>
-<li><p><strong>简单性：</strong> 由于只涉及两个设备之间的通信，点对点信道的数据链路层通常相对简单。协议的设计和实现可以专注于满足这种直接连接的特定需求，而不需要考虑多设备之间的复杂通信。</p>
+<li>
+<p><strong>简单性：</strong> 由于只涉及两个设备之间的通信，点对点信道的数据链路层通常相对简单。协议的设计和实现可以专注于满足这种直接连接的特定需求，而不需要考虑多设备之间的复杂通信。</p>
 </li>
-<li><p><strong>全双工或半双工通信：</strong> 点对点信道的数据链路层可以支持全双工或半双工通信，取决于通信需求。全双工允许两个设备同时进行双向通信，而半双工则要求设备在同一时间内只能发送或接收。</p>
+<li>
+<p><strong>全双工或半双工通信：</strong> 点对点信道的数据链路层可以支持全双工或半双工通信，取决于通信需求。全双工允许两个设备同时进行双向通信，而半双工则要求设备在同一时间内只能发送或接收。</p>
 </li>
-<li><p><strong>物理层适配：</strong> 数据链路层需要适应底层物理介质的特性，例如在串口通信中可能需要考虑电气信号的传输，或者在无线点对点连接中需要考虑频谱和信号强度等因素。</p>
+<li>
+<p><strong>物理层适配：</strong> 数据链路层需要适应底层物理介质的特性，例如在串口通信中可能需要考虑电气信号的传输，或者在无线点对点连接中需要考虑频谱和信号强度等因素。</p>
 </li>
-<li><p><strong>差错检测和纠正：</strong> 数据链路层在点对点通信中仍然需要处理差错检测和纠正，以确保数据的可靠性。这可以包括使用校验和、CRC（循环冗余检测）等技术。</p>
+<li>
+<p><strong>差错检测和纠正：</strong> 数据链路层在点对点通信中仍然需要处理差错检测和纠正，以确保数据的可靠性。这可以包括使用校验和、CRC（循环冗余检测）等技术。</p>
 </li>
-<li><p><strong>协议选择：</strong> 在点对点信道上，可以选择适当的数据链路层协议，以满足特定的通信需求。常见的协议包括HDLC（High-Level Data Link Control）、PPP（Point-to-Point Protocol）等。</p>
+<li>
+<p><strong>协议选择：</strong> 在点对点信道上，可以选择适当的数据链路层协议，以满足特定的通信需求。常见的协议包括HDLC（High-Level Data Link Control）、PPP（Point-to-Point Protocol）等。</p>
 </li>
 </ul>
 <p>总体而言，点对点信道的数据链路层通过建立直接的、专用的通信连接，为两个设备之间的通信提供了一种简单而直接的方式。这种通信模式在许多应用场景中都非常常见，例如串口通信、拨号连接、虚拟专用网络等。</p>
-<h3 id="使用广播信道的数据链路层"><a href="#使用广播信道的数据链路层" class="headerlink" title="使用广播信道的数据链路层"></a>使用广播信道的数据链路层</h3><p>使用广播信道的数据链路层涉及多个设备共享同一通信介质，其中每个设备可以发送和接收数据。在广播信道中，数据链路层需要处理多个设备之间的竞争、冲突和协同操作，以确保数据的可靠传输。</p>
+<h3 id="使用广播信道的数据链路层"><a class="markdownIt-Anchor" href="#使用广播信道的数据链路层"></a> 使用广播信道的数据链路层</h3>
+<p>使用广播信道的数据链路层涉及多个设备共享同一通信介质，其中每个设备可以发送和接收数据。在广播信道中，数据链路层需要处理多个设备之间的竞争、冲突和协同操作，以确保数据的可靠传输。</p>
 <p>以下是使用广播信道的数据链路层的主要特点：</p>
 <ul>
-<li><p><strong>共享介质：</strong> 在广播信道中，多个设备共享同一个通信介质，如以太网中的同一物理电缆。这就需要数据链路层协议来协调设备的访问，以防止冲突和碰撞。</p>
+<li>
+<p><strong>共享介质：</strong> 在广播信道中，多个设备共享同一个通信介质，如以太网中的同一物理电缆。这就需要数据链路层协议来协调设备的访问，以防止冲突和碰撞。</p>
 </li>
-<li><p><strong>CSMA&#x2F;CD协议：</strong> 在以太网等广播信道中，常见的数据链路层协议是CSMA&#x2F;CD（Carrier Sense Multiple Access with Collision Detection）。该协议允许设备在发送数据之前先检测信道是否被占用，如果信道忙，则设备等待一段时间后重新尝试发送。如果发生碰撞（多个设备同时尝试发送数据），设备会检测到碰撞并采取后续处理，如随机退避后重新发送。</p>
+<li>
+<p><strong>CSMA/CD协议：</strong> 在以太网等广播信道中，常见的数据链路层协议是CSMA/CD（Carrier Sense Multiple Access with Collision Detection）。该协议允许设备在发送数据之前先检测信道是否被占用，如果信道忙，则设备等待一段时间后重新尝试发送。如果发生碰撞（多个设备同时尝试发送数据），设备会检测到碰撞并采取后续处理，如随机退避后重新发送。</p>
 </li>
-<li><p><strong>CSMA&#x2F;CA协议：</strong>CSMA&#x2F;CA（Carrier Sense Multiple Access with Collision Avoidance）是一种用于无线网络的数据链路层协议，特别是在IEEE 802.11标准中广泛使用。与CSMA&#x2F;CD（Carrier Sense Multiple Access with Collision Detection）不同，CSMA&#x2F;CA专为避免碰撞而设计，因为在无线环境中，由于信号传播的特性，检测到碰撞是相对困难的。</p>
+<li>
+<p>**CSMA/CA协议：**CSMA/CA（Carrier Sense Multiple Access with Collision Avoidance）是一种用于无线网络的数据链路层协议，特别是在IEEE 802.11标准中广泛使用。与CSMA/CD（Carrier Sense Multiple Access with Collision Detection）不同，CSMA/CA专为避免碰撞而设计，因为在无线环境中，由于信号传播的特性，检测到碰撞是相对困难的。</p>
 </li>
-<li><p><strong>地址解析：</strong> 在广播信道中，数据链路层通常使用物理地址（MAC地址）来标识设备。地址解析协议（如ARP，Address Resolution Protocol）帮助设备将网络层地址（如IP地址）映射到物理地址，以便正确路由数据。</p>
+<li>
+<p><strong>地址解析：</strong> 在广播信道中，数据链路层通常使用物理地址（MAC地址）来标识设备。地址解析协议（如ARP，Address Resolution Protocol）帮助设备将网络层地址（如IP地址）映射到物理地址，以便正确路由数据。</p>
 </li>
-<li><p><strong>广播和多播：</strong> 数据链路层支持广播和多播传输。广播是将数据发送到网络中的所有设备，而多播是将数据发送到一个特定的设备组。这有助于在局域网中有效地传递信息。</p>
+<li>
+<p><strong>广播和多播：</strong> 数据链路层支持广播和多播传输。广播是将数据发送到网络中的所有设备，而多播是将数据发送到一个特定的设备组。这有助于在局域网中有效地传递信息。</p>
 </li>
-<li><p><strong>流量控制：</strong> 数据链路层需要处理共享介质上的流量控制，以确保网络中的设备不会过多地发送数据，从而导致冲突和性能问题。</p>
+<li>
+<p><strong>流量控制：</strong> 数据链路层需要处理共享介质上的流量控制，以确保网络中的设备不会过多地发送数据，从而导致冲突和性能问题。</p>
 </li>
-<li><p><strong>帧定界和分割：</strong> 数据链路层需要在数据流中定义帧的定界和分割规则，以便接收设备能够正确地解析和处理帧。</p>
+<li>
+<p><strong>帧定界和分割：</strong> 数据链路层需要在数据流中定义帧的定界和分割规则，以便接收设备能够正确地解析和处理帧。</p>
 </li>
-<li><p><strong>广播域：</strong> 在广播信道中，网络被划分为广播域，即在该域内的设备可以互相通信。这种划分有助于管理和隔离网络流量。</p>
+<li>
+<p><strong>广播域：</strong> 在广播信道中，网络被划分为广播域，即在该域内的设备可以互相通信。这种划分有助于管理和隔离网络流量。</p>
 </li>
 </ul>
 <p>总体而言，使用广播信道的数据链路层需要处理多设备之间的竞争和协同操作，以确保有效、可靠地共享通信介质。以太网是一个典型的使用广播信道的网络技术，广泛用于局域网中。</p>
-<h3 id="数据链路层的互连设备"><a href="#数据链路层的互连设备" class="headerlink" title="数据链路层的互连设备"></a>数据链路层的互连设备</h3><p>数据链路层的互连设备包括网桥（Bridge）和交换机（Switch），它们在局域网中用于连接和管理网络中的不同部分。总的来说，网桥和交换机在数据链路层工作，通过学习和过滤机制提高了网络性能，而门是一个简单的物理层设备，仅负责信号的放大，不具备智能转发能力。</p>
-<h4 id="网桥（Bridge）和交换机（Switch）的工作原理："><a href="#网桥（Bridge）和交换机（Switch）的工作原理：" class="headerlink" title="网桥（Bridge）和交换机（Switch）的工作原理："></a>网桥（Bridge）和交换机（Switch）的工作原理：</h4><ul>
-<li><h5 id="网桥（Bridge）的工作原理："><a href="#网桥（Bridge）的工作原理：" class="headerlink" title="网桥（Bridge）的工作原理："></a><strong>网桥（Bridge）的工作原理：</strong></h5><ul>
-<li><p><strong>过滤决策：</strong> 网桥在数据链路层工作，能够识别数据帧中的物理地址（MAC地址）。它根据源和目标地址过滤数据帧，决定是否将数据帧转发到目标网络。</p>
+<h3 id="数据链路层的互连设备"><a class="markdownIt-Anchor" href="#数据链路层的互连设备"></a> 数据链路层的互连设备</h3>
+<p>数据链路层的互连设备包括网桥（Bridge）和交换机（Switch），它们在局域网中用于连接和管理网络中的不同部分。总的来说，网桥和交换机在数据链路层工作，通过学习和过滤机制提高了网络性能，而门是一个简单的物理层设备，仅负责信号的放大，不具备智能转发能力。</p>
+<h4 id="网桥bridge和交换机switch的工作原理"><a class="markdownIt-Anchor" href="#网桥bridge和交换机switch的工作原理"></a> 网桥（Bridge）和交换机（Switch）的工作原理：</h4>
+<ul>
+<li>
+<h5 id="网桥bridge的工作原理"><a class="markdownIt-Anchor" href="#网桥bridge的工作原理"></a> <strong>网桥（Bridge）的工作原理：</strong></h5>
+<ul>
+<li>
+<p><strong>过滤决策：</strong> 网桥在数据链路层工作，能够识别数据帧中的物理地址（MAC地址）。它根据源和目标地址过滤数据帧，决定是否将数据帧转发到目标网络。</p>
 </li>
-<li><p><strong>学习机制：</strong> 网桥通过学习源地址和端口的对应关系，建立一个地址表（MAC地址表）。它根据这个表来决定将数据帧转发到哪个端口，避免将数据广播到整个网络。</p>
+<li>
+<p><strong>学习机制：</strong> 网桥通过学习源地址和端口的对应关系，建立一个地址表（MAC地址表）。它根据这个表来决定将数据帧转发到哪个端口，避免将数据广播到整个网络。</p>
 </li>
-<li><p><strong>转发决策：</strong> 当网桥接收到数据帧时，它会查找地址表来判断是否知道目标地址的位置。如果知道，就只将数据帧转发到目标网络；否则，就将数据帧广播到所有网络。</p>
-</li>
-</ul>
-</li>
-<li><h5 id="交换机（Switch）的工作原理："><a href="#交换机（Switch）的工作原理：" class="headerlink" title="交换机（Switch）的工作原理："></a><strong>交换机（Switch）的工作原理：</strong></h5><ul>
-<li><p><strong>存储转发：</strong> 交换机通过存储转发方式工作。它接收到整个数据帧后，会存储整个帧，然后再根据目标地址进行转发决策。这种方式避免了碰撞和冲突，提高了网络性能。</p>
-</li>
-<li><p><strong>地址学习：</strong> 交换机通过学习源地址和端口的对应关系，建立地址表。这样，交换机能够快速地将数据帧定向到目标端口，而不必广播到整个网络。</p>
-</li>
-<li><p><strong>转发决策：</strong> 交换机根据地址表，将数据帧准确地转发到目标端口，而不需要广播。这提高了网络的效率和带宽利用率。</p>
+<li>
+<p><strong>转发决策：</strong> 当网桥接收到数据帧时，它会查找地址表来判断是否知道目标地址的位置。如果知道，就只将数据帧转发到目标网络；否则，就将数据帧广播到所有网络。</p>
 </li>
 </ul>
 </li>
-</ul>
-<h4 id="门（Hub）与交换机的区别："><a href="#门（Hub）与交换机的区别：" class="headerlink" title="门（Hub）与交换机的区别："></a>门（Hub）与交换机的区别：</h4><ul>
-<li><h5 id="门（Hub）的特点："><a href="#门（Hub）的特点：" class="headerlink" title="门（Hub）的特点："></a><strong>门（Hub）的特点：</strong></h5><ul>
-<li><p><strong>物理层设备：</strong> 门是一个物理层设备，工作在 OSI 模型的第一层，仅仅是一个信号放大器，不理解或处理数据帧。</p>
+<li>
+<h5 id="交换机switch的工作原理"><a class="markdownIt-Anchor" href="#交换机switch的工作原理"></a> <strong>交换机（Switch）的工作原理：</strong></h5>
+<ul>
+<li>
+<p><strong>存储转发：</strong> 交换机通过存储转发方式工作。它接收到整个数据帧后，会存储整个帧，然后再根据目标地址进行转发决策。这种方式避免了碰撞和冲突，提高了网络性能。</p>
 </li>
-<li><p><strong>广播：</strong> 当门接收到数据时，它会将数据帧广播到所有连接的设备，无论目标地址是什么。这会导致网络中的所有设备都要处理这个数据帧。</p>
+<li>
+<p><strong>地址学习：</strong> 交换机通过学习源地址和端口的对应关系，建立地址表。这样，交换机能够快速地将数据帧定向到目标端口，而不必广播到整个网络。</p>
 </li>
-<li><p><strong>共享冲突域：</strong> 由于门的工作方式，所有设备共享相同的冲突域，可能导致网络拥塞和性能下降。</p>
-</li>
-</ul>
-</li>
-<li><h5 id="交换机与门的区别："><a href="#交换机与门的区别：" class="headerlink" title="交换机与门的区别："></a><strong>交换机与门的区别：</strong></h5><ul>
-<li><p><strong>数据链路层设备：</strong> 交换机是数据链路层设备，能够理解和处理数据帧，可以根据 MAC 地址进行智能的转发。</p>
-</li>
-<li><p><strong>有地址表：</strong> 交换机拥有一个地址表，能够学习和存储设备的 MAC 地址，并根据这个表决定将数据帧转发到哪个端口。</p>
-</li>
-<li><p><strong>减小冲突域：</strong> 由于交换机的智能转发和地址学习功能，它可以将不同端口划分为不同的冲突域，有效减小了网络的拥塞和碰撞概率。</p>
+<li>
+<p><strong>转发决策：</strong> 交换机根据地址表，将数据帧准确地转发到目标端口，而不需要广播。这提高了网络的效率和带宽利用率。</p>
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="封装成帧"><a href="#封装成帧" class="headerlink" title="封装成帧"></a>封装成帧</h3><p><strong>封装成帧</strong>是数据链路层的一个重要过程，它将从上层协议接收到的数据单元添加帧头和帧尾，形成一个完整的数据帧。这个过程是为了在数据链路层中传输数据时，提供帧定界、地址标识、错误检测等控制信息。</p>
-<h4 id="主要目的和作用："><a href="#主要目的和作用：" class="headerlink" title="主要目的和作用："></a>主要目的和作用：</h4><ul>
-<li><p><strong>帧定界：</strong> 帧头和帧尾的添加使得接收端能够识别一个完整的数据帧。帧定界是非常重要的，因为它告诉接收端何时开始接收数据帧，何时结束接收数据帧。这样，接收端能够正确地解析和处理每个帧，确保数据的完整性。</p>
+<h4 id="门hub与交换机的区别"><a class="markdownIt-Anchor" href="#门hub与交换机的区别"></a> 门（Hub）与交换机的区别：</h4>
+<ul>
+<li>
+<h5 id="门hub的特点"><a class="markdownIt-Anchor" href="#门hub的特点"></a> <strong>门（Hub）的特点：</strong></h5>
+<ul>
+<li>
+<p><strong>物理层设备：</strong> 门是一个物理层设备，工作在 OSI 模型的第一层，仅仅是一个信号放大器，不理解或处理数据帧。</p>
 </li>
-<li><p><strong>地址标识：</strong> 帧头中可能包含源地址和目标地址，这些地址用于在局域网中标识发送和接收设备。在以太网等网络中，使用MAC地址作为物理地址标识。</p>
+<li>
+<p><strong>广播：</strong> 当门接收到数据时，它会将数据帧广播到所有连接的设备，无论目标地址是什么。这会导致网络中的所有设备都要处理这个数据帧。</p>
 </li>
-<li><p><strong>控制信息：</strong> 帧头中可能包含一些控制字段，用于指示帧的类型、流控信息、差错检测和纠正等。这些信息有助于数据链路层的协议进行正确的数据处理。</p>
-</li>
-<li><p><strong>差错检测和纠正：</strong> 帧头和帧尾中可能包含用于差错检测和纠正的冗余信息，例如循环冗余检测码（CRC）。这有助于接收端检测是否在传输过程中发生了错误，并采取适当的措施进行纠正。</p>
-</li>
-</ul>
-<h4 id="具体步骤："><a href="#具体步骤：" class="headerlink" title="具体步骤："></a>具体步骤：</h4><ul>
-<li><p><strong>添加帧头：</strong> 在数据链路层接收到来自上层协议的数据时，会在数据前添加帧头，包含帧的起始标志、地址信息、控制信息等。</p>
-</li>
-<li><p><strong>添加帧尾：</strong> 在数据的末尾添加帧尾，通常包含帧的结束标志和差错检测码（如CRC），用于确保数据的完整性。</p>
-</li>
-<li><p><strong>传输：</strong> 带有帧头和帧尾的完整数据帧被传输到物理介质上，通过网络传递到目标设备。</p>
-</li>
-<li><p><strong>接收端处理：</strong> 接收端根据帧头和帧尾的信息来识别和提取数据帧，然后进行相应的处理，如差错检测、解析地址等。</p>
+<li>
+<p><strong>共享冲突域：</strong> 由于门的工作方式，所有设备共享相同的冲突域，可能导致网络拥塞和性能下降。</p>
 </li>
 </ul>
-<h3 id="透明传输"><a href="#透明传输" class="headerlink" title="透明传输"></a>透明传输</h3><p>透明传输是指数据链路层对上层交付的传输数据没有任何限制，使得上层协议不需要关心底层传输细节，就好像数据链路层不存在一样。这使得<strong>不同网络层之间的协议能够独立工作，而无需考虑底层传输</strong>的具体实现。</p>
+</li>
+<li>
+<h5 id="交换机与门的区别"><a class="markdownIt-Anchor" href="#交换机与门的区别"></a> <strong>交换机与门的区别：</strong></h5>
+<ul>
+<li>
+<p><strong>数据链路层设备：</strong> 交换机是数据链路层设备，能够理解和处理数据帧，可以根据 MAC 地址进行智能的转发。</p>
+</li>
+<li>
+<p><strong>有地址表：</strong> 交换机拥有一个地址表，能够学习和存储设备的 MAC 地址，并根据这个表决定将数据帧转发到哪个端口。</p>
+</li>
+<li>
+<p><strong>减小冲突域：</strong> 由于交换机的智能转发和地址学习功能，它可以将不同端口划分为不同的冲突域，有效减小了网络的拥塞和碰撞概率。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="封装成帧"><a class="markdownIt-Anchor" href="#封装成帧"></a> 封装成帧</h3>
+<p><strong>封装成帧</strong>是数据链路层的一个重要过程，它将从上层协议接收到的数据单元添加帧头和帧尾，形成一个完整的数据帧。这个过程是为了在数据链路层中传输数据时，提供帧定界、地址标识、错误检测等控制信息。</p>
+<h4 id="主要目的和作用"><a class="markdownIt-Anchor" href="#主要目的和作用"></a> 主要目的和作用：</h4>
+<ul>
+<li>
+<p><strong>帧定界：</strong> 帧头和帧尾的添加使得接收端能够识别一个完整的数据帧。帧定界是非常重要的，因为它告诉接收端何时开始接收数据帧，何时结束接收数据帧。这样，接收端能够正确地解析和处理每个帧，确保数据的完整性。</p>
+</li>
+<li>
+<p><strong>地址标识：</strong> 帧头中可能包含源地址和目标地址，这些地址用于在局域网中标识发送和接收设备。在以太网等网络中，使用MAC地址作为物理地址标识。</p>
+</li>
+<li>
+<p><strong>控制信息：</strong> 帧头中可能包含一些控制字段，用于指示帧的类型、流控信息、差错检测和纠正等。这些信息有助于数据链路层的协议进行正确的数据处理。</p>
+</li>
+<li>
+<p><strong>差错检测和纠正：</strong> 帧头和帧尾中可能包含用于差错检测和纠正的冗余信息，例如循环冗余检测码（CRC）。这有助于接收端检测是否在传输过程中发生了错误，并采取适当的措施进行纠正。</p>
+</li>
+</ul>
+<h4 id="具体步骤"><a class="markdownIt-Anchor" href="#具体步骤"></a> 具体步骤：</h4>
+<ul>
+<li>
+<p><strong>添加帧头：</strong> 在数据链路层接收到来自上层协议的数据时，会在数据前添加帧头，包含帧的起始标志、地址信息、控制信息等。</p>
+</li>
+<li>
+<p><strong>添加帧尾：</strong> 在数据的末尾添加帧尾，通常包含帧的结束标志和差错检测码（如CRC），用于确保数据的完整性。</p>
+</li>
+<li>
+<p><strong>传输：</strong> 带有帧头和帧尾的完整数据帧被传输到物理介质上，通过网络传递到目标设备。</p>
+</li>
+<li>
+<p><strong>接收端处理：</strong> 接收端根据帧头和帧尾的信息来识别和提取数据帧，然后进行相应的处理，如差错检测、解析地址等。</p>
+</li>
+</ul>
+<h3 id="透明传输"><a class="markdownIt-Anchor" href="#透明传输"></a> 透明传输</h3>
+<p>透明传输是指数据链路层对上层交付的传输数据没有任何限制，使得上层协议不需要关心底层传输细节，就好像数据链路层不存在一样。这使得<strong>不同网络层之间的协议能够独立工作，而无需考虑底层传输</strong>的具体实现。</p>
 <p><strong>在面向字节的物理链路上</strong>，透明传输通常使用字节填充（或字符填充）的方法。这意味着数据链路层会在需要的情况下插入特殊的字节（填充字符），以防止与控制字符混淆，并确保传输的数据帧被正确解释。</p>
 <p><strong>在面向比特的物理链路上</strong>，透明传输则使用比特填充的方法。这涉及在数据中插入特殊的比特模式，以确保数据链路层能够正确解析数据帧。</p>
 <p>为了提高帧的传输效率，数据链路层希望帧的数据部分的长度尽可能大。然而，考虑到不同的因素，如网络的<strong>最大传送单元（MTU）、差错控制的开销、帧的处理时间</strong>等，每一种数据链路层协议都规定了帧的数据部分的长度上限，即最大传送单元（MTU）。这个上限是为了确保在不同的网络条件下能够可靠地传输数据。</p>
-<h3 id="差错检测"><a href="#差错检测" class="headerlink" title="差错检测"></a>差错检测</h3><p>差错检测是数据通信中的一项重要任务，用于检测在数据传输过程中是否发生了错误。这有助于确保数据的完整性和可靠性。常见的差错检测方法包括奇偶校验、循环冗余检测（CRC）、校验和等。</p>
+<h3 id="差错检测"><a class="markdownIt-Anchor" href="#差错检测"></a> 差错检测</h3>
+<p>差错检测是数据通信中的一项重要任务，用于检测在数据传输过程中是否发生了错误。这有助于确保数据的完整性和可靠性。常见的差错检测方法包括奇偶校验、循环冗余检测（CRC）、校验和等。</p>
 <ul>
-<li><h4 id="奇偶校验："><a href="#奇偶校验：" class="headerlink" title="奇偶校验："></a><strong>奇偶校验：</strong></h4><ul>
-<li><p><strong>原理：</strong> 在奇偶校验中，发送端在传送数据之前计算数据中1的个数（或0的个数），然后在数据末尾添加一位（奇校验）或零位（偶校验），使得总的位数为奇数或偶数。</p>
+<li>
+<h4 id="奇偶校验"><a class="markdownIt-Anchor" href="#奇偶校验"></a> <strong>奇偶校验：</strong></h4>
+<ul>
+<li>
+<p><strong>原理：</strong> 在奇偶校验中，发送端在传送数据之前计算数据中1的个数（或0的个数），然后在数据末尾添加一位（奇校验）或零位（偶校验），使得总的位数为奇数或偶数。</p>
 </li>
-<li><p><strong>检测方式：</strong> 接收端根据接收到的数据重新计算奇偶位，如果接收到的数据与计算出的奇偶位不匹配，就说明发生了错误。</p>
-</li>
-</ul>
-</li>
-<li><h4 id="循环冗余检测（CRC）："><a href="#循环冗余检测（CRC）：" class="headerlink" title="循环冗余检测（CRC）："></a><strong>循环冗余检测（CRC）：</strong></h4><ul>
-<li><p><strong>原理：</strong> CRC使用多项式除法来生成冗余校验码，将这个校验码附加到数据中一起传输。</p>
-</li>
-<li><p><strong>检测方式：</strong> 接收端使用相同的多项式进行计算，如果计算出的冗余校验码与接收到的校验码不匹配，就说明发生了错误。</p>
+<li>
+<p><strong>检测方式：</strong> 接收端根据接收到的数据重新计算奇偶位，如果接收到的数据与计算出的奇偶位不匹配，就说明发生了错误。</p>
 </li>
 </ul>
 </li>
-<li><h4 id="校验和（Checksum）："><a href="#校验和（Checksum）：" class="headerlink" title="校验和（Checksum）："></a><strong>校验和（Checksum）：</strong></h4><ul>
-<li><p><strong>原理：</strong> 校验和是通过对数据中的每个字节进行加法运算生成的。发送端将加法结果作为校验和发送给接收端。</p>
+<li>
+<h4 id="循环冗余检测crc"><a class="markdownIt-Anchor" href="#循环冗余检测crc"></a> <strong>循环冗余检测（CRC）：</strong></h4>
+<ul>
+<li>
+<p><strong>原理：</strong> CRC使用多项式除法来生成冗余校验码，将这个校验码附加到数据中一起传输。</p>
 </li>
-<li><p><strong>检测方式：</strong> 接收端也对接收到的数据中的每个字节进行加法运算，然后与接收到的校验和进行比较，如果不匹配，则发生了错误。</p>
-</li>
-</ul>
-</li>
-<li><h4 id="海明码（Hamming-Code）："><a href="#海明码（Hamming-Code）：" class="headerlink" title="海明码（Hamming Code）："></a><strong>海明码（Hamming Code）：</strong></h4><ul>
-<li><p><strong>原理：</strong> 海明码是一种通过在数据中添加冗余位来检测并纠正单比特错误的方法。它使用矩阵运算来生成和检测错误。</p>
-</li>
-<li><p><strong>检测方式：</strong> 接收端利用海明码的结构来检测并在可能的情况下纠正错误。</p>
+<li>
+<p><strong>检测方式：</strong> 接收端使用相同的多项式进行计算，如果计算出的冗余校验码与接收到的校验码不匹配，就说明发生了错误。</p>
 </li>
 </ul>
 </li>
+<li>
+<h4 id="校验和checksum"><a class="markdownIt-Anchor" href="#校验和checksum"></a> <strong>校验和（Checksum）：</strong></h4>
+<ul>
+<li>
+<p><strong>原理：</strong> 校验和是通过对数据中的每个字节进行加法运算生成的。发送端将加法结果作为校验和发送给接收端。</p>
+</li>
+<li>
+<p><strong>检测方式：</strong> 接收端也对接收到的数据中的每个字节进行加法运算，然后与接收到的校验和进行比较，如果不匹配，则发生了错误。</p>
+</li>
 </ul>
-<h3 id="可靠传输：等待-停止协议"><a href="#可靠传输：等待-停止协议" class="headerlink" title="可靠传输：等待-停止协议"></a>可靠传输：等待-停止协议</h3><p><strong>停止-等待协议（Stop-and-Wait Protocol，简称SW）</strong>是一种简单的可靠传输协议，常用于在数据链路层中实现。它确保了数据的可靠传输，但同时可能由于其效率较低而不适用于高延迟或高带宽的网络环境。</p>
-<h4 id="停止-等待协议的基本原理："><a href="#停止-等待协议的基本原理：" class="headerlink" title="停止-等待协议的基本原理："></a>停止-等待协议的基本原理：</h4><ol>
-<li><p><strong>帧的发送：</strong> 发送方在发送一帧后等待确认，确保接收方成功接收并确认了帧。</p>
 </li>
-<li><p><strong>等待确认：</strong> 发送方在发送完一帧后会进入等待确认状态，等待接收方的确认帧。</p>
+<li>
+<h4 id="海明码hamming-code"><a class="markdownIt-Anchor" href="#海明码hamming-code"></a> <strong>海明码（Hamming Code）：</strong></h4>
+<ul>
+<li>
+<p><strong>原理：</strong> 海明码是一种通过在数据中添加冗余位来检测并纠正单比特错误的方法。它使用矩阵运算来生成和检测错误。</p>
 </li>
-<li><p><strong>确认帧：</strong> 接收方在成功接收到帧后，会发送确认帧给发送方。</p>
+<li>
+<p><strong>检测方式：</strong> 接收端利用海明码的结构来检测并在可能的情况下纠正错误。</p>
 </li>
-<li><p><strong>超时重传：</strong> 如果发送方在一定时间内没有收到确认帧，它会假设帧在传输过程中出现了问题，触发超时重传机制，重新发送该帧。</p>
+</ul>
+</li>
+</ul>
+<h3 id="可靠传输等待-停止协议"><a class="markdownIt-Anchor" href="#可靠传输等待-停止协议"></a> 可靠传输：等待-停止协议</h3>
+<p>**停止-等待协议（Stop-and-Wait Protocol，简称SW）**是一种简单的可靠传输协议，常用于在数据链路层中实现。它确保了数据的可靠传输，但同时可能由于其效率较低而不适用于高延迟或高带宽的网络环境。</p>
+<h4 id="停止-等待协议的基本原理"><a class="markdownIt-Anchor" href="#停止-等待协议的基本原理"></a> 停止-等待协议的基本原理：</h4>
+<ol>
+<li>
+<p><strong>帧的发送：</strong> 发送方在发送一帧后等待确认，确保接收方成功接收并确认了帧。</p>
+</li>
+<li>
+<p><strong>等待确认：</strong> 发送方在发送完一帧后会进入等待确认状态，等待接收方的确认帧。</p>
+</li>
+<li>
+<p><strong>确认帧：</strong> 接收方在成功接收到帧后，会发送确认帧给发送方。</p>
+</li>
+<li>
+<p><strong>超时重传：</strong> 如果发送方在一定时间内没有收到确认帧，它会假设帧在传输过程中出现了问题，触发超时重传机制，重新发送该帧。</p>
 </li>
 </ol>
-<h4 id="SW协议的特点："><a href="#SW协议的特点：" class="headerlink" title="SW协议的特点："></a>SW协议的特点：</h4><ol>
-<li><p><strong>一次只能发送一个帧：</strong> 在停止-等待协议中，发送方在等待接收到确认帧之前，不会发送下一个帧。这使得传输速率相对较低，尤其在网络延迟较大的情况下。</p>
+<h4 id="sw协议的特点"><a class="markdownIt-Anchor" href="#sw协议的特点"></a> SW协议的特点：</h4>
+<ol>
+<li>
+<p><strong>一次只能发送一个帧：</strong> 在停止-等待协议中，发送方在等待接收到确认帧之前，不会发送下一个帧。这使得传输速率相对较低，尤其在网络延迟较大的情况下。</p>
 </li>
-<li><p><strong>可靠性：</strong> SW协议通过等待确认的方式来确保数据的可靠传输，因为只有在接收方确认帧正确接收后，发送方才会发送下一个帧。</p>
+<li>
+<p><strong>可靠性：</strong> SW协议通过等待确认的方式来确保数据的可靠传输，因为只有在接收方确认帧正确接收后，发送方才会发送下一个帧。</p>
 </li>
-<li><p><strong>超时机制：</strong> 如果发送方在一定时间内没有收到确认帧，就会认为发生了丢失或损坏，触发超时重传机制。</p>
+<li>
+<p><strong>超时机制：</strong> 如果发送方在一定时间内没有收到确认帧，就会认为发生了丢失或损坏，触发超时重传机制。</p>
 </li>
-<li><p><strong>序号和确认号：</strong> 通常，帧中包含序号，而确认帧中包含确认号。序号用于标识发送的帧，而确认号用于指示接收方期望收到的下一个帧。</p>
+<li>
+<p><strong>序号和确认号：</strong> 通常，帧中包含序号，而确认帧中包含确认号。序号用于标识发送的帧，而确认号用于指示接收方期望收到的下一个帧。</p>
 </li>
-<li><p><strong>流水线效应：</strong> 停止-等待协议中的流水线效应较弱，因为每次只发送一个帧，等待确认之后才能发送下一个帧。</p>
+<li>
+<p><strong>流水线效应：</strong> 停止-等待协议中的流水线效应较弱，因为每次只发送一个帧，等待确认之后才能发送下一个帧。</p>
 </li>
 </ol>
-<h3 id="点对点协议PPP"><a href="#点对点协议PPP" class="headerlink" title="点对点协议PPP"></a>点对点协议PPP</h3><p><strong>PPP（Point-to-Point Protocol）</strong>是一种用于在点对点通信链路上进行数据链路层通信的协议。它通常用于在两个网络设备（例如，计算机和路由器）之间建立连接，提供可靠的数据传输和支持网络层协议（如IPv4或IPv6）的封装。</p>
+<h3 id="点对点协议ppp"><a class="markdownIt-Anchor" href="#点对点协议ppp"></a> 点对点协议PPP</h3>
+<p>**PPP（Point-to-Point Protocol）**是一种用于在点对点通信链路上进行数据链路层通信的协议。它通常用于在两个网络设备（例如，计算机和路由器）之间建立连接，提供可靠的数据传输和支持网络层协议（如IPv4或IPv6）的封装。</p>
 <p>以下是PPP的主要特点和工作原理：</p>
 <ul>
-<li><p><strong>点对点通信：</strong> PPP主要设计用于点对点通信，即两个设备之间的直接连接。这可以是通过物理介质（例如串口线）或逻辑连接（例如虚拟专用网络）实现的。</p>
+<li>
+<p><strong>点对点通信：</strong> PPP主要设计用于点对点通信，即两个设备之间的直接连接。这可以是通过物理介质（例如串口线）或逻辑连接（例如虚拟专用网络）实现的。</p>
 </li>
-<li><p><strong>多种链路层协议支持：</strong> PPP支持多种链路层协议，其中包括IPv4、IPv6、IPX（Internetwork Packet Exchange）等。这意味着PPP可以适应不同的网络需求。</p>
+<li>
+<p><strong>多种链路层协议支持：</strong> PPP支持多种链路层协议，其中包括IPv4、IPv6、IPX（Internetwork Packet Exchange）等。这意味着PPP可以适应不同的网络需求。</p>
 </li>
-<li><p><strong>封装和帧格式：</strong> PPP将上层协议的数据封装成帧，添加帧头和帧尾，形成一个完整的帧。帧的格式包括地址字段、控制字段、协议字段、数据字段和帧校验序列（FCS）。PPP的帧格式灵活，能够支持不同的链路层协议。</p>
+<li>
+<p><strong>封装和帧格式：</strong> PPP将上层协议的数据封装成帧，添加帧头和帧尾，形成一个完整的帧。帧的格式包括地址字段、控制字段、协议字段、数据字段和帧校验序列（FCS）。PPP的帧格式灵活，能够支持不同的链路层协议。</p>
 </li>
-<li><p><strong>LCP（Link Control Protocol）：</strong> PPP使用LCP协议来建立、配置和测试数据链路连接。LCP协议的主要功能包括对链路的状态检测、链路参数的配置协商以及链路的终止。</p>
+<li>
+<p><strong>LCP（Link Control Protocol）：</strong> PPP使用LCP协议来建立、配置和测试数据链路连接。LCP协议的主要功能包括对链路的状态检测、链路参数的配置协商以及链路的终止。</p>
 </li>
-<li><p><strong>NCP（Network Control Protocol）：</strong> PPP使用NCP协议来协商和配置网络层协议，例如IP协议。每个支持的网络层协议都有对应的NCP。</p>
+<li>
+<p><strong>NCP（Network Control Protocol）：</strong> PPP使用NCP协议来协商和配置网络层协议，例如IP协议。每个支持的网络层协议都有对应的NCP。</p>
 </li>
-<li><p><strong>可靠传输：</strong> PPP通过使用帧校验序列（FCS）来提供基本的差错检测，并通过LCP协议进行链路状态的管理。虽然PPP本身并未提供完整的可靠性机制，但在它之上的协议，如TCP，可以提供端到端的可靠传输。</p>
+<li>
+<p><strong>可靠传输：</strong> PPP通过使用帧校验序列（FCS）来提供基本的差错检测，并通过LCP协议进行链路状态的管理。虽然PPP本身并未提供完整的可靠性机制，但在它之上的协议，如TCP，可以提供端到端的可靠传输。</p>
 </li>
-<li><p><strong>握手和认证：</strong> PPP支持握手和认证过程，通过PAP（Password Authentication Protocol）和CHAP（Challenge Handshake Authentication Protocol）等协议，实现对端设备的认证。</p>
-</li>
-</ul>
-<h3 id="媒体接入控制"><a href="#媒体接入控制" class="headerlink" title="媒体接入控制"></a>媒体接入控制</h3><p><strong>媒体访问控制（Media Access Control，MAC）</strong>是数据链路层中的一个子层，负责规定和管理设备在共享通信介质上的访问方式。MAC层定义了设备如何检测和处理冲突、分配帧的优先级、以及进行地址识别等任务。其中，媒体访问控制的主要方法包括：</p>
-<ul>
-<li><p><strong>载波监听多路访问（Carrier Sense Multiple Access，CSMA）：</strong></p>
-<ul>
-<li><p><strong>CSMA&#x2F;CD：</strong> 在共享介质上，设备在发送数据之前监听信道，如果信道空闲，则开始发送数据；如果信道忙，则等待一段时间后重试。CSMA&#x2F;CD（Collision Detection）用于检测冲突并采取相应措施。</p>
-</li>
-<li><p><strong>CSMA&#x2F;CA：</strong> 在无线网络中，由于信号的传播特性，检测冲突相对困难。CSMA&#x2F;CA（Collision Avoidance）通过避免碰撞的方式进行操作。设备在发送数据之前发送一个RTS（Request to Send）帧，接收设备回复CTS（Clear to Send）帧，这样其他设备就知道当前信道是否被占用。</p>
+<li>
+<p><strong>握手和认证：</strong> PPP支持握手和认证过程，通过PAP（Password Authentication Protocol）和CHAP（Challenge Handshake Authentication Protocol）等协议，实现对端设备的认证。</p>
 </li>
 </ul>
+<h3 id="媒体接入控制"><a class="markdownIt-Anchor" href="#媒体接入控制"></a> 媒体接入控制</h3>
+<p>**媒体访问控制（Media Access Control，MAC）**是数据链路层中的一个子层，负责规定和管理设备在共享通信介质上的访问方式。MAC层定义了设备如何检测和处理冲突、分配帧的优先级、以及进行地址识别等任务。其中，媒体访问控制的主要方法包括：</p>
+<ul>
+<li>
+<p><strong>载波监听多路访问（Carrier Sense Multiple Access，CSMA）：</strong></p>
+<ul>
+<li>
+<p><strong>CSMA/CD：</strong> 在共享介质上，设备在发送数据之前监听信道，如果信道空闲，则开始发送数据；如果信道忙，则等待一段时间后重试。CSMA/CD（Collision Detection）用于检测冲突并采取相应措施。</p>
 </li>
-<li><p><strong>时分多路访问（Time Division Multiple Access，TDMA）：</strong></p>
+<li>
+<p><strong>CSMA/CA：</strong> 在无线网络中，由于信号的传播特性，检测冲突相对困难。CSMA/CA（Collision Avoidance）通过避免碰撞的方式进行操作。设备在发送数据之前发送一个RTS（Request to Send）帧，接收设备回复CTS（Clear to Send）帧，这样其他设备就知道当前信道是否被占用。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>时分多路访问（Time Division Multiple Access，TDMA）：</strong></p>
 <ul>
 <li>TDMA将时间划分为若干个时隙，每个设备在分配的时隙中进行通信。这样，设备之间不会发生碰撞，每个设备在自己的时隙内独占通信介质。</li>
 </ul>
 </li>
-<li><p><strong>频分多路访问（Frequency Division Multiple Access，FDMA）：</strong></p>
+<li>
+<p><strong>频分多路访问（Frequency Division Multiple Access，FDMA）：</strong></p>
 <ul>
 <li>FDMA将频谱划分为若干个频带，每个设备在一个频带上进行通信。这样，不同设备在不同的频带上工作，避免了碰撞。</li>
 </ul>
 </li>
-<li><p><strong>轮询访问：</strong></p>
+<li>
+<p><strong>轮询访问：</strong></p>
 <ul>
 <li>设备按照预定的顺序轮流获得通信介质的使用权。轮询访问的方式适用于有限数量的设备，但可能引入延迟。</li>
 </ul>
 </li>
-<li><p><strong>随机访问：</strong></p>
+<li>
+<p><strong>随机访问：</strong></p>
 <ul>
 <li>设备在发送数据前先进行随机等待，然后尝试发送。如果发生冲突，设备会采取退避算法，在一段时间后重新尝试发送。</li>
 </ul>
 </li>
-<li><p><strong>集中控制：</strong></p>
+<li>
+<p><strong>集中控制：</strong></p>
 <ul>
 <li>在集中控制的环境中，一个中心控制设备负责协调其他设备的访问。这种方式通常用于局域网或广域网的管理。</li>
 </ul>
 </li>
 </ul>
-<p>不同的媒体访问控制方法适用于不同的网络环境和通信介质。选择适当的MAC协议取决于网络的特性、设备数量、通信需求以及实际应用场景。例如，以太网通常采用CSMA&#x2F;CD，而无线局域网则常使用CSMA&#x2F;CA。</p>
-<h3 id="随机接入-CSMA-CA协议和ARP协议"><a href="#随机接入-CSMA-CA协议和ARP协议" class="headerlink" title="随机接入-CSMA&#x2F;CA协议和ARP协议"></a>随机接入-CSMA&#x2F;CA协议和ARP协议</h3><h4 id="CSMA-CA协议："><a href="#CSMA-CA协议：" class="headerlink" title="CSMA&#x2F;CA协议："></a>CSMA&#x2F;CA协议：</h4><p><strong>CSMA&#x2F;CA（Carrier Sense Multiple Access with Collision Avoidance）</strong>是一种用于无线网络中的媒体访问控制协议。在CSMA&#x2F;CA中，设备在发送数据之前先侦听信道，以避免碰撞，并采用一些机制来减少冲突的发生。这个协议常用于Wi-Fi等无线局域网技术中。</p>
-<p>CSMA&#x2F;CA的工作原理如下：</p>
+<p>不同的媒体访问控制方法适用于不同的网络环境和通信介质。选择适当的MAC协议取决于网络的特性、设备数量、通信需求以及实际应用场景。例如，以太网通常采用CSMA/CD，而无线局域网则常使用CSMA/CA。</p>
+<h3 id="随机接入-csmaca协议和arp协议"><a class="markdownIt-Anchor" href="#随机接入-csmaca协议和arp协议"></a> 随机接入-CSMA/CA协议和ARP协议</h3>
+<h4 id="csmaca协议"><a class="markdownIt-Anchor" href="#csmaca协议"></a> CSMA/CA协议：</h4>
+<p>**CSMA/CA（Carrier Sense Multiple Access with Collision Avoidance）**是一种用于无线网络中的媒体访问控制协议。在CSMA/CA中，设备在发送数据之前先侦听信道，以避免碰撞，并采用一些机制来减少冲突的发生。这个协议常用于Wi-Fi等无线局域网技术中。</p>
+<p>CSMA/CA的工作原理如下：</p>
 <ul>
-<li><p><strong>侦听信道：</strong> 在发送数据之前，设备会先侦听信道，检测信道是否处于空闲状态。</p>
+<li>
+<p><strong>侦听信道：</strong> 在发送数据之前，设备会先侦听信道，检测信道是否处于空闲状态。</p>
 </li>
-<li><p><strong>随机等待：</strong> 如果信道忙，设备会随机等待一段时间后再次尝试发送。这个随机等待有助于减少多个设备同时尝试发送数据的概率，降低碰撞的发生。</p>
+<li>
+<p><strong>随机等待：</strong> 如果信道忙，设备会随机等待一段时间后再次尝试发送。这个随机等待有助于减少多个设备同时尝试发送数据的概率，降低碰撞的发生。</p>
 </li>
-<li><p><strong>RTS&#x2F;CTS机制：</strong> 为了避免隐藏节点问题，CSMA&#x2F;CA引入了RTS（Request to Send）和CTS（Clear to Send）机制。发送设备在发送数据之前会先发送一个RTS帧，接收设备回复CTS帧。其他设备会收到RTS和CTS帧，从而知道当前信道被占用。</p>
+<li>
+<p><strong>RTS/CTS机制：</strong> 为了避免隐藏节点问题，CSMA/CA引入了RTS（Request to Send）和CTS（Clear to Send）机制。发送设备在发送数据之前会先发送一个RTS帧，接收设备回复CTS帧。其他设备会收到RTS和CTS帧，从而知道当前信道被占用。</p>
 </li>
-<li><p><strong>退避机制：</strong> 如果设备在发送数据后未收到ACK（确认帧），它会认为发生了碰撞或数据错误，执行退避机制，等待一段随机的时间后重新尝试发送。</p>
+<li>
+<p><strong>退避机制：</strong> 如果设备在发送数据后未收到ACK（确认帧），它会认为发生了碰撞或数据错误，执行退避机制，等待一段随机的时间后重新尝试发送。</p>
 </li>
 </ul>
-<h4 id="ARP协议："><a href="#ARP协议：" class="headerlink" title="ARP协议："></a>ARP协议：</h4><p><strong>ARP（Address Resolution Protocol）</strong>则是一种解析网络层地址（通常是IP地址）到物理层地址（通常是MAC地址）的协议。它帮助设备确定目标设备的物理地址，以便正确地封装和发送数据帧。</p>
+<h4 id="arp协议"><a class="markdownIt-Anchor" href="#arp协议"></a> ARP协议：</h4>
+<p>**ARP（Address Resolution Protocol）**则是一种解析网络层地址（通常是IP地址）到物理层地址（通常是MAC地址）的协议。它帮助设备确定目标设备的物理地址，以便正确地封装和发送数据帧。</p>
 <p>ARP用于将网络层地址（通常是IPv4地址）解析为物理层地址（通常是MAC地址）。其工作过程如下：</p>
 <ul>
-<li><p><strong>请求：</strong> 当设备知道目标设备的IP地址但不知道其MAC地址时，会发送一个ARP请求广播，请求目标设备回复其MAC地址。</p>
+<li>
+<p><strong>请求：</strong> 当设备知道目标设备的IP地址但不知道其MAC地址时，会发送一个ARP请求广播，请求目标设备回复其MAC地址。</p>
 </li>
-<li><p><strong>回复：</strong> 目标设备收到ARP请求后，会发送一个ARP回复，包含自己的MAC地址。其他设备在收到回复后将目标设备的IP地址和MAC地址映射存储在ARP缓存中，以便将来使用。</p>
-</li>
-</ul>
-<p>CSMA&#x2F;CA和ARP通常共同工作在网络协议栈中。CSMA&#x2F;CA用于控制无线信道上的媒体访问，而ARP用于解析网络层地址。在无线局域网中，CSMA&#x2F;CA是一种重要的媒体访问控制方式，而ARP则是在IP网络中解决地址解析问题的协议。</p>
-<h3 id="MAC地址和IP地址"><a href="#MAC地址和IP地址" class="headerlink" title="MAC地址和IP地址"></a>MAC地址和IP地址</h3><p><strong>MAC地址（Media Access Control Address）</strong>和<strong>IP地址（Internet Protocol Address）</strong>是网络中两个不同的地址类型，各自用于不同的目的。</p>
-<h4 id="MAC地址："><a href="#MAC地址：" class="headerlink" title="MAC地址："></a>MAC地址：</h4><ul>
-<li><p><strong>定义：</strong> MAC地址是一个用于识别网络设备的物理地址，通常由48位二进制数字组成。在常见的以太网中，MAC地址也以六组十六进制数表示，每两个十六进制数之间用冒号或连字符分隔。</p>
-</li>
-<li><p><strong>唯一性：</strong> MAC地址在全球范围内是唯一的，每个网络设备都有独特的MAC地址。这确保了在网络中不会有两个设备具有相同的MAC地址。</p>
-</li>
-<li><p><strong>作用：</strong> MAC地址主要用于在数据链路层识别和定位设备，特别是在局域网中。在以太网中，帧中的目标MAC地址用于将数据帧传送到正确的接收设备。</p>
+<li>
+<p><strong>回复：</strong> 目标设备收到ARP请求后，会发送一个ARP回复，包含自己的MAC地址。其他设备在收到回复后将目标设备的IP地址和MAC地址映射存储在ARP缓存中，以便将来使用。</p>
 </li>
 </ul>
-<h4 id="IP地址："><a href="#IP地址：" class="headerlink" title="IP地址："></a>IP地址：</h4><ul>
-<li><p><strong>定义：</strong> IP地址是用于在Internet上唯一标识和定位设备的逻辑地址。IPv4地址由32位二进制数字组成，通常以四组十进制数表示，每组数之间用点号分隔。IPv6则由128位组成，以八组十六进制数表示。</p>
+<p>CSMA/CA和ARP通常共同工作在网络协议栈中。CSMA/CA用于控制无线信道上的媒体访问，而ARP用于解析网络层地址。在无线局域网中，CSMA/CA是一种重要的媒体访问控制方式，而ARP则是在IP网络中解决地址解析问题的协议。</p>
+<h3 id="mac地址和ip地址"><a class="markdownIt-Anchor" href="#mac地址和ip地址"></a> MAC地址和IP地址</h3>
+<p>**MAC地址（Media Access Control Address）<strong>和</strong>IP地址（Internet Protocol Address）**是网络中两个不同的地址类型，各自用于不同的目的。</p>
+<h4 id="mac地址"><a class="markdownIt-Anchor" href="#mac地址"></a> MAC地址：</h4>
+<ul>
+<li>
+<p><strong>定义：</strong> MAC地址是一个用于识别网络设备的物理地址，通常由48位二进制数字组成。在常见的以太网中，MAC地址也以六组十六进制数表示，每两个十六进制数之间用冒号或连字符分隔。</p>
 </li>
-<li><p><strong>层次结构：</strong> IP地址是网络层的一部分，用于实现全球互联网络。IP地址分为公共地址和私有地址，以及不同的地址类别（A、B、C等）。</p>
+<li>
+<p><strong>唯一性：</strong> MAC地址在全球范围内是唯一的，每个网络设备都有独特的MAC地址。这确保了在网络中不会有两个设备具有相同的MAC地址。</p>
 </li>
-<li><p><strong>路由：</strong> IP地址的主要作用是在网络中进行路由和寻址。它允许数据包通过网络传递，并确保它们能够被正确地路由到目标设备。</p>
+<li>
+<p><strong>作用：</strong> MAC地址主要用于在数据链路层识别和定位设备，特别是在局域网中。在以太网中，帧中的目标MAC地址用于将数据帧传送到正确的接收设备。</p>
 </li>
-<li><p><strong>唯一性：</strong> 在IPv4中，IP地址在全球范围内也应该是唯一的，但由于IPv4地址空间的有限性，IPv6被引入以提供更广泛的唯一地址。</p>
+</ul>
+<h4 id="ip地址"><a class="markdownIt-Anchor" href="#ip地址"></a> IP地址：</h4>
+<ul>
+<li>
+<p><strong>定义：</strong> IP地址是用于在Internet上唯一标识和定位设备的逻辑地址。IPv4地址由32位二进制数字组成，通常以四组十进制数表示，每组数之间用点号分隔。IPv6则由128位组成，以八组十六进制数表示。</p>
+</li>
+<li>
+<p><strong>层次结构：</strong> IP地址是网络层的一部分，用于实现全球互联网络。IP地址分为公共地址和私有地址，以及不同的地址类别（A、B、C等）。</p>
+</li>
+<li>
+<p><strong>路由：</strong> IP地址的主要作用是在网络中进行路由和寻址。它允许数据包通过网络传递，并确保它们能够被正确地路由到目标设备。</p>
+</li>
+<li>
+<p><strong>唯一性：</strong> 在IPv4中，IP地址在全球范围内也应该是唯一的，但由于IPv4地址空间的有限性，IPv6被引入以提供更广泛的唯一地址。</p>
 </li>
 </ul>
 <p>在网络通信中，MAC地址和IP地址之间存在一定的映射关系。ARP协议（Address Resolution Protocol）用于将IP地址解析为对应的MAC地址。设备通过ARP协议查询目标设备的MAC地址，以便将数据帧正确发送到目标设备。</p>
-<h3 id="集线器"><a href="#集线器" class="headerlink" title="集线器"></a>集线器</h3><p>集线器（Hub）是一种网络设备，用于在局域网中连接多个设备，并共享通信介质。它工作在物理层，主要作为信号的中继器，将来自一个端口的信号广播到其他所有端口。与交换机不同，集线器并不具备学习和存储MAC地址的功能，也没有逐帧转发的能力。</p>
+<h3 id="集线器"><a class="markdownIt-Anchor" href="#集线器"></a> 集线器</h3>
+<p>集线器（Hub）是一种网络设备，用于在局域网中连接多个设备，并共享通信介质。它工作在物理层，主要作为信号的中继器，将来自一个端口的信号广播到其他所有端口。与交换机不同，集线器并不具备学习和存储MAC地址的功能，也没有逐帧转发的能力。</p>
 <p>以下是关于集线器的主要特点和工作原理：</p>
-<h4 id="主要特点："><a href="#主要特点：" class="headerlink" title="主要特点："></a>主要特点：</h4><ul>
-<li><p><strong>广播：</strong> 集线器接收到的数据会被广播到所有连接的设备，而不管数据的目标设备是谁。这导致所有设备都会接收到广播的数据帧。</p>
+<h4 id="主要特点"><a class="markdownIt-Anchor" href="#主要特点"></a> 主要特点：</h4>
+<ul>
+<li>
+<p><strong>广播：</strong> 集线器接收到的数据会被广播到所有连接的设备，而不管数据的目标设备是谁。这导致所有设备都会接收到广播的数据帧。</p>
 </li>
-<li><p><strong>无存储和学习：</strong> 集线器不存储设备的MAC地址，也不学习设备的地址。因此，它对网络中设备的逻辑结构一无所知，所有数据都广播到所有端口。</p>
+<li>
+<p><strong>无存储和学习：</strong> 集线器不存储设备的MAC地址，也不学习设备的地址。因此，它对网络中设备的逻辑结构一无所知，所有数据都广播到所有端口。</p>
 </li>
-<li><p><strong>冲突域：</strong> 所有设备连接到集线器的同一个冲突域内。这意味着在同一时刻，只能有一个设备发送数据，以避免碰撞。</p>
+<li>
+<p><strong>冲突域：</strong> 所有设备连接到集线器的同一个冲突域内。这意味着在同一时刻，只能有一个设备发送数据，以避免碰撞。</p>
 </li>
-<li><p><strong>半双工通信：</strong> 集线器使用半双工通信，同一时间只能进行发送或接收操作。设备不能同时发送和接收数据。</p>
-</li>
-</ul>
-<h4 id="工作原理："><a href="#工作原理：" class="headerlink" title="工作原理："></a>工作原理：</h4><ul>
-<li><p><strong>信号中继：</strong> 集线器的主要功能是将来自一个端口的信号中继到所有其他端口。当集线器接收到一个数据帧时，它会将该帧广播到所有连接的设备。</p>
-</li>
-<li><p><strong>物理层连接：</strong> 集线器连接设备的物理层是共享的，所有设备共用同一通信介质。这导致所有设备在同一时刻共享带宽，并可能引发冲突。</p>
-</li>
-<li><p><strong>冲突处理：</strong> 如果多个设备同时尝试发送数据，可能会发生冲突。在以太网中，冲突通过使用CSMA&#x2F;CD（Carrier Sense Multiple Access with Collision Detection）协议来检测和处理。</p>
-</li>
-<li><p><strong>广播：</strong> 集线器广播数据帧到所有端口，使得连接到集线器的每个设备都能接收到相同的数据。</p>
-</li>
-<li><p><strong>无区分设备：</strong> 集线器对连接的设备没有逻辑上的区分，无法识别设备的MAC地址或IP地址。</p>
+<li>
+<p><strong>半双工通信：</strong> 集线器使用半双工通信，同一时间只能进行发送或接收操作。设备不能同时发送和接收数据。</p>
 </li>
 </ul>
-<h3 id="以太网交换机"><a href="#以太网交换机" class="headerlink" title="以太网交换机"></a>以太网交换机</h3><p>以太网交换机是一种网络设备，用于在局域网中连接多个设备，并在数据链路层上进行数据帧的转发。相比于集线器（Hub），交换机具有更高的性能和智能性，可以提高网络的效率和安全性。以下是关于以太网交换机的主要特点和工作原理：</p>
-<h4 id="主要特点：-1"><a href="#主要特点：-1" class="headerlink" title="主要特点："></a>主要特点：</h4><ul>
-<li><p><strong>逐帧转发：</strong> 以太网交换机通过学习每个设备的MAC地址，能够逐帧地将数据帧定向传输到目标设备，而不是广播到所有设备。这减少了冲突域，提高了带宽利用率。</p>
+<h4 id="工作原理"><a class="markdownIt-Anchor" href="#工作原理"></a> 工作原理：</h4>
+<ul>
+<li>
+<p><strong>信号中继：</strong> 集线器的主要功能是将来自一个端口的信号中继到所有其他端口。当集线器接收到一个数据帧时，它会将该帧广播到所有连接的设备。</p>
 </li>
-<li><p><strong>MAC地址表：</strong> 交换机维护一个MAC地址表，记录了每个设备的MAC地址与其连接的端口信息。通过这个表，交换机可以快速地确定数据帧的目标设备，并将数据帧仅传输到目标设备所在的端口。</p>
+<li>
+<p><strong>物理层连接：</strong> 集线器连接设备的物理层是共享的，所有设备共用同一通信介质。这导致所有设备在同一时刻共享带宽，并可能引发冲突。</p>
 </li>
-<li><p><strong>多端口：</strong> 以太网交换机通常具有多个端口，可以同时连接多台设备。端口的数量可以根据网络需求进行扩展。</p>
+<li>
+<p><strong>冲突处理：</strong> 如果多个设备同时尝试发送数据，可能会发生冲突。在以太网中，冲突通过使用CSMA/CD（Carrier Sense Multiple Access with Collision Detection）协议来检测和处理。</p>
 </li>
-<li><p><strong>独立冲突域：</strong> 每个端口形成一个独立的冲突域，避免了多设备同时发送数据时的冲突，提高了网络性能。</p>
+<li>
+<p><strong>广播：</strong> 集线器广播数据帧到所有端口，使得连接到集线器的每个设备都能接收到相同的数据。</p>
 </li>
-<li><p><strong>自适应速率：</strong> 现代以太网交换机通常支持自适应速率，能够自动调整端口的速率，以适应连接设备的速率差异。</p>
-</li>
-<li><p><strong>虚拟局域网（VLAN）支持：</strong> 交换机可以根据需要配置虚拟局域网，将不同的设备划分到不同的虚拟网络中，增加网络的灵活性和安全性。</p>
-</li>
-<li><p><strong>流量控制：</strong> 一些交换机支持流量控制机制，可以帮助管理网络流量，防止过载和丢包。</p>
-</li>
-</ul>
-<h4 id="工作原理：-1"><a href="#工作原理：-1" class="headerlink" title="工作原理："></a>工作原理：</h4><ul>
-<li><p><strong>学习MAC地址：</strong> 当交换机接收到数据帧时，它会检查源MAC地址，并将该地址与接收到的端口信息存储到MAC地址表中。如果MAC地址已存在，交换机更新对应端口的信息。</p>
-</li>
-<li><p><strong>查找MAC地址表：</strong> 当接收到数据帧时，交换机会查询MAC地址表，找到目标MAC地址对应的端口。如果找到，数据帧将仅被传输到目标端口。</p>
-</li>
-<li><p><strong>广播和未知目标：</strong> 如果目标MAC地址不在MAC地址表中，交换机会将数据帧广播到所有端口（除了源端口），以确保目标设备能够学习到源设备的MAC地址。</p>
-</li>
-<li><p><strong>逐帧转发：</strong> 交换机对每个数据帧都进行逐帧转发，将其定向传输到目标设备的端口，而不是广播到整个网络。</p>
-</li>
-<li><p><strong>流量控制：</strong> 一些交换机支持流量控制，可根据网络流量和性能进行调整，防止拥塞和数据丢失。</p>
+<li>
+<p><strong>无区分设备：</strong> 集线器对连接的设备没有逻辑上的区分，无法识别设备的MAC地址或IP地址。</p>
 </li>
 </ul>
-<h3 id="虚拟局域网：VLAN"><a href="#虚拟局域网：VLAN" class="headerlink" title="虚拟局域网：VLAN"></a>虚拟局域网：VLAN</h3><p><strong>虚拟局域网（Virtual Local Area Network，VLAN）</strong>是一种将单一物理局域网划分为多个逻辑上独立的子网络的技术。VLAN能够提高网络的灵活性、安全性和性能。以下是关于VLAN的主要特点和工作原理：</p>
-<h4 id="主要特点：-2"><a href="#主要特点：-2" class="headerlink" title="主要特点："></a>主要特点：</h4><ol>
-<li><p><strong>逻辑划分：</strong> VLAN允许网络管理员在单一物理网络中创建多个逻辑上独立的子网络，这样不同的设备可以在不同的逻辑网络中进行通信。</p>
+<h3 id="以太网交换机"><a class="markdownIt-Anchor" href="#以太网交换机"></a> 以太网交换机</h3>
+<p>以太网交换机是一种网络设备，用于在局域网中连接多个设备，并在数据链路层上进行数据帧的转发。相比于集线器（Hub），交换机具有更高的性能和智能性，可以提高网络的效率和安全性。以下是关于以太网交换机的主要特点和工作原理：</p>
+<h4 id="主要特点-2"><a class="markdownIt-Anchor" href="#主要特点-2"></a> 主要特点：</h4>
+<ul>
+<li>
+<p><strong>逐帧转发：</strong> 以太网交换机通过学习每个设备的MAC地址，能够逐帧地将数据帧定向传输到目标设备，而不是广播到所有设备。这减少了冲突域，提高了带宽利用率。</p>
 </li>
-<li><p><strong>灵活性：</strong> 设备的逻辑位置不再受限于它们在物理网络中的位置，而是由VLAN的配置确定。这使得设备可以按照逻辑需求而不是物理位置进行组织。</p>
+<li>
+<p><strong>MAC地址表：</strong> 交换机维护一个MAC地址表，记录了每个设备的MAC地址与其连接的端口信息。通过这个表，交换机可以快速地确定数据帧的目标设备，并将数据帧仅传输到目标设备所在的端口。</p>
 </li>
-<li><p><strong>安全性：</strong> VLAN可以提高网络的安全性，因为设备只能直接与同一VLAN中的设备进行通信。这有助于隔离不同的用户群体，提高网络的安全性。</p>
+<li>
+<p><strong>多端口：</strong> 以太网交换机通常具有多个端口，可以同时连接多台设备。端口的数量可以根据网络需求进行扩展。</p>
 </li>
-<li><p><strong>性能优化：</strong> 通过将广播域划分为不同的VLAN，减少了广播和多播的传播范围，提高了网络性能。</p>
+<li>
+<p><strong>独立冲突域：</strong> 每个端口形成一个独立的冲突域，避免了多设备同时发送数据时的冲突，提高了网络性能。</p>
 </li>
-<li><p><strong>透明性：</strong> 虽然VLAN划分了逻辑网络，但对用户和终端设备而言，这种划分是透明的，用户感知不到物理网络的变化。</p>
+<li>
+<p><strong>自适应速率：</strong> 现代以太网交换机通常支持自适应速率，能够自动调整端口的速率，以适应连接设备的速率差异。</p>
+</li>
+<li>
+<p><strong>虚拟局域网（VLAN）支持：</strong> 交换机可以根据需要配置虚拟局域网，将不同的设备划分到不同的虚拟网络中，增加网络的灵活性和安全性。</p>
+</li>
+<li>
+<p><strong>流量控制：</strong> 一些交换机支持流量控制机制，可以帮助管理网络流量，防止过载和丢包。</p>
+</li>
+</ul>
+<h4 id="工作原理-2"><a class="markdownIt-Anchor" href="#工作原理-2"></a> 工作原理：</h4>
+<ul>
+<li>
+<p><strong>学习MAC地址：</strong> 当交换机接收到数据帧时，它会检查源MAC地址，并将该地址与接收到的端口信息存储到MAC地址表中。如果MAC地址已存在，交换机更新对应端口的信息。</p>
+</li>
+<li>
+<p><strong>查找MAC地址表：</strong> 当接收到数据帧时，交换机会查询MAC地址表，找到目标MAC地址对应的端口。如果找到，数据帧将仅被传输到目标端口。</p>
+</li>
+<li>
+<p><strong>广播和未知目标：</strong> 如果目标MAC地址不在MAC地址表中，交换机会将数据帧广播到所有端口（除了源端口），以确保目标设备能够学习到源设备的MAC地址。</p>
+</li>
+<li>
+<p><strong>逐帧转发：</strong> 交换机对每个数据帧都进行逐帧转发，将其定向传输到目标设备的端口，而不是广播到整个网络。</p>
+</li>
+<li>
+<p><strong>流量控制：</strong> 一些交换机支持流量控制，可根据网络流量和性能进行调整，防止拥塞和数据丢失。</p>
+</li>
+</ul>
+<h3 id="虚拟局域网vlan"><a class="markdownIt-Anchor" href="#虚拟局域网vlan"></a> 虚拟局域网：VLAN</h3>
+<p>**虚拟局域网（Virtual Local Area Network，VLAN）**是一种将单一物理局域网划分为多个逻辑上独立的子网络的技术。VLAN能够提高网络的灵活性、安全性和性能。以下是关于VLAN的主要特点和工作原理：</p>
+<h4 id="主要特点-3"><a class="markdownIt-Anchor" href="#主要特点-3"></a> 主要特点：</h4>
+<ol>
+<li>
+<p><strong>逻辑划分：</strong> VLAN允许网络管理员在单一物理网络中创建多个逻辑上独立的子网络，这样不同的设备可以在不同的逻辑网络中进行通信。</p>
+</li>
+<li>
+<p><strong>灵活性：</strong> 设备的逻辑位置不再受限于它们在物理网络中的位置，而是由VLAN的配置确定。这使得设备可以按照逻辑需求而不是物理位置进行组织。</p>
+</li>
+<li>
+<p><strong>安全性：</strong> VLAN可以提高网络的安全性，因为设备只能直接与同一VLAN中的设备进行通信。这有助于隔离不同的用户群体，提高网络的安全性。</p>
+</li>
+<li>
+<p><strong>性能优化：</strong> 通过将广播域划分为不同的VLAN，减少了广播和多播的传播范围，提高了网络性能。</p>
+</li>
+<li>
+<p><strong>透明性：</strong> 虽然VLAN划分了逻辑网络，但对用户和终端设备而言，这种划分是透明的，用户感知不到物理网络的变化。</p>
 </li>
 </ol>
-<h4 id="工作原理：-2"><a href="#工作原理：-2" class="headerlink" title="工作原理："></a>工作原理：</h4><ol>
-<li><p><strong>基于端口：</strong> 最简单的VLAN划分是基于交换机端口的。每个端口被分配到一个特定的VLAN，所有连接到该端口的设备都属于同一VLAN。</p>
+<h4 id="工作原理-3"><a class="markdownIt-Anchor" href="#工作原理-3"></a> 工作原理：</h4>
+<ol>
+<li>
+<p><strong>基于端口：</strong> 最简单的VLAN划分是基于交换机端口的。每个端口被分配到一个特定的VLAN，所有连接到该端口的设备都属于同一VLAN。</p>
 </li>
-<li><p><strong>基于MAC地址：</strong> 有些VLAN实现允许基于设备的MAC地址进行VLAN划分，即同一设备的所有端口可以属于同一VLAN。</p>
+<li>
+<p><strong>基于MAC地址：</strong> 有些VLAN实现允许基于设备的MAC地址进行VLAN划分，即同一设备的所有端口可以属于同一VLAN。</p>
 </li>
-<li><p><strong>基于协议：</strong> VLAN还可以基于网络层协议进行划分，例如将所有IP电话设备划分到一个VLAN，将所有视频设备划分到另一个VLAN。</p>
+<li>
+<p><strong>基于协议：</strong> VLAN还可以基于网络层协议进行划分，例如将所有IP电话设备划分到一个VLAN，将所有视频设备划分到另一个VLAN。</p>
 </li>
-<li><p><strong>标记帧：</strong> 802.1Q协议是一种常用的VLAN标记协议，它在以太网帧中添加一个额外的标签，表示该帧属于哪个VLAN。交换机根据这个标签将帧转发到正确的VLAN。</p>
+<li>
+<p><strong>标记帧：</strong> 802.1Q协议是一种常用的VLAN标记协议，它在以太网帧中添加一个额外的标签，表示该帧属于哪个VLAN。交换机根据这个标签将帧转发到正确的VLAN。</p>
 </li>
-<li><p><strong>路由：</strong> 虽然VLAN内部的设备可以直接通信，但如果需要不同VLAN之间的通信，就需要通过路由器进行。这样可以实现不同VLAN之间的隔离和控制通信的策略。</p>
+<li>
+<p><strong>路由：</strong> 虽然VLAN内部的设备可以直接通信，但如果需要不同VLAN之间的通信，就需要通过路由器进行。这样可以实现不同VLAN之间的隔离和控制通信的策略。</p>
 </li>
 </ol>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.c3ngh.top">C3ngH</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.c3ngh.top/2024/03/04/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">https://www.c3ngh.top/2024/03/04/数据链路层/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.c3ngh.top" target="_blank">C3ngH's B10g</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></div><div class="post_share"><div class="social-share" data-image="https://c3ngh-blog.oss-cn-hangzhou.aliyuncs.com/img/C3ngH.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/03/04/C%E8%AF%AD%E8%A8%80%E9%83%A8%E5%88%86%E7%96%91%E6%83%91%E8%A7%A3%E7%AD%94/" title="C语言结构体/指针/typedef百问百答"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">C语言结构体/指针/typedef百问百答</div></div></a></div><div class="next-post pull-right"><a href="/2024/03/02/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%BB%BC%E5%90%88%E8%AE%AD%E7%BB%83/" title="程序设计综合训练"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">程序设计综合训练</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://c3ngh-blog.oss-cn-hangzhou.aliyuncs.com/img/C3ngH.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">C3ngH</div><div class="author-info__description">允许一切如其所是.</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/zch050217"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">2024.02.17 航_</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E9%93%BE%E6%8E%A5%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">计算机网络相关链接：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">2.</span> <span class="toc-text">数据链路层的概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%82%B9%E5%AF%B9%E7%82%B9%E4%BF%A1%E9%81%93%E7%9A%84%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="toc-number">3.</span> <span class="toc-text">使用点对点信道的数据链路层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%B9%BF%E6%92%AD%E4%BF%A1%E9%81%93%E7%9A%84%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="toc-number">4.</span> <span class="toc-text">使用广播信道的数据链路层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E7%9A%84%E4%BA%92%E8%BF%9E%E8%AE%BE%E5%A4%87"><span class="toc-number">5.</span> <span class="toc-text">数据链路层的互连设备</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E6%A1%A5%EF%BC%88Bridge%EF%BC%89%E5%92%8C%E4%BA%A4%E6%8D%A2%E6%9C%BA%EF%BC%88Switch%EF%BC%89%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="toc-number">5.1.</span> <span class="toc-text">网桥（Bridge）和交换机（Switch）的工作原理：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BD%91%E6%A1%A5%EF%BC%88Bridge%EF%BC%89%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="toc-number">5.1.1.</span> <span class="toc-text">网桥（Bridge）的工作原理：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%9C%BA%EF%BC%88Switch%EF%BC%89%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="toc-number">5.1.2.</span> <span class="toc-text">交换机（Switch）的工作原理：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%A8%EF%BC%88Hub%EF%BC%89%E4%B8%8E%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="toc-number">5.2.</span> <span class="toc-text">门（Hub）与交换机的区别：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%97%A8%EF%BC%88Hub%EF%BC%89%E7%9A%84%E7%89%B9%E7%82%B9%EF%BC%9A"><span class="toc-number">5.2.1.</span> <span class="toc-text">门（Hub）的特点：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%9C%BA%E4%B8%8E%E9%97%A8%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="toc-number">5.2.2.</span> <span class="toc-text">交换机与门的区别：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%81%E8%A3%85%E6%88%90%E5%B8%A7"><span class="toc-number">6.</span> <span class="toc-text">封装成帧</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%9B%AE%E7%9A%84%E5%92%8C%E4%BD%9C%E7%94%A8%EF%BC%9A"><span class="toc-number">6.1.</span> <span class="toc-text">主要目的和作用：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4%EF%BC%9A"><span class="toc-number">6.2.</span> <span class="toc-text">具体步骤：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%8F%E6%98%8E%E4%BC%A0%E8%BE%93"><span class="toc-number">7.</span> <span class="toc-text">透明传输</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%AE%E9%94%99%E6%A3%80%E6%B5%8B"><span class="toc-number">8.</span> <span class="toc-text">差错检测</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C%EF%BC%9A"><span class="toc-number">8.1.</span> <span class="toc-text">奇偶校验：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E5%86%97%E4%BD%99%E6%A3%80%E6%B5%8B%EF%BC%88CRC%EF%BC%89%EF%BC%9A"><span class="toc-number">8.2.</span> <span class="toc-text">循环冗余检测（CRC）：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%A1%E9%AA%8C%E5%92%8C%EF%BC%88Checksum%EF%BC%89%EF%BC%9A"><span class="toc-number">8.3.</span> <span class="toc-text">校验和（Checksum）：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%B7%E6%98%8E%E7%A0%81%EF%BC%88Hamming-Code%EF%BC%89%EF%BC%9A"><span class="toc-number">8.4.</span> <span class="toc-text">海明码（Hamming Code）：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93%EF%BC%9A%E7%AD%89%E5%BE%85-%E5%81%9C%E6%AD%A2%E5%8D%8F%E8%AE%AE"><span class="toc-number">9.</span> <span class="toc-text">可靠传输：等待-停止协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%81%9C%E6%AD%A2-%E7%AD%89%E5%BE%85%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="toc-number">9.1.</span> <span class="toc-text">停止-等待协议的基本原理：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SW%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%89%B9%E7%82%B9%EF%BC%9A"><span class="toc-number">9.2.</span> <span class="toc-text">SW协议的特点：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%82%B9%E5%AF%B9%E7%82%B9%E5%8D%8F%E8%AE%AEPPP"><span class="toc-number">10.</span> <span class="toc-text">点对点协议PPP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AA%92%E4%BD%93%E6%8E%A5%E5%85%A5%E6%8E%A7%E5%88%B6"><span class="toc-number">11.</span> <span class="toc-text">媒体接入控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%8E%A5%E5%85%A5-CSMA-CA%E5%8D%8F%E8%AE%AE%E5%92%8CARP%E5%8D%8F%E8%AE%AE"><span class="toc-number">12.</span> <span class="toc-text">随机接入-CSMA&#x2F;CA协议和ARP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CSMA-CA%E5%8D%8F%E8%AE%AE%EF%BC%9A"><span class="toc-number">12.1.</span> <span class="toc-text">CSMA&#x2F;CA协议：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ARP%E5%8D%8F%E8%AE%AE%EF%BC%9A"><span class="toc-number">12.2.</span> <span class="toc-text">ARP协议：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MAC%E5%9C%B0%E5%9D%80%E5%92%8CIP%E5%9C%B0%E5%9D%80"><span class="toc-number">13.</span> <span class="toc-text">MAC地址和IP地址</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#MAC%E5%9C%B0%E5%9D%80%EF%BC%9A"><span class="toc-number">13.1.</span> <span class="toc-text">MAC地址：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IP%E5%9C%B0%E5%9D%80%EF%BC%9A"><span class="toc-number">13.2.</span> <span class="toc-text">IP地址：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E7%BA%BF%E5%99%A8"><span class="toc-number">14.</span> <span class="toc-text">集线器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%89%B9%E7%82%B9%EF%BC%9A"><span class="toc-number">14.1.</span> <span class="toc-text">主要特点：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="toc-number">14.2.</span> <span class="toc-text">工作原理：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-number">15.</span> <span class="toc-text">以太网交换机</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%89%B9%E7%82%B9%EF%BC%9A-1"><span class="toc-number">15.1.</span> <span class="toc-text">主要特点：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%EF%BC%9A-1"><span class="toc-number">15.2.</span> <span class="toc-text">工作原理：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91%EF%BC%9AVLAN"><span class="toc-number">16.</span> <span class="toc-text">虚拟局域网：VLAN</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%89%B9%E7%82%B9%EF%BC%9A-2"><span class="toc-number">16.1.</span> <span class="toc-text">主要特点：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%EF%BC%9A-2"><span class="toc-number">16.2.</span> <span class="toc-text">工作原理：</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%AE%BA/" title="计算机网络概论">计算机网络概论</a><time datetime="2024-03-22T14:11:05.000Z" title="发表于 2024-03-22 22:11:05">2024-03-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/18/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" title="PHP反序列化">PHP反序列化</a><time datetime="2024-03-18T10:46:54.000Z" title="发表于 2024-03-18 18:46:54">2024-03-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/07/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" title="如何正确上网">如何正确上网</a><time datetime="2024-03-07T14:08:42.000Z" title="发表于 2024-03-07 22:08:42">2024-03-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/04/C%E8%AF%AD%E8%A8%80%E9%83%A8%E5%88%86%E7%96%91%E6%83%91%E8%A7%A3%E7%AD%94/" title="C语言结构体/指针/typedef百问百答">C语言结构体/指针/typedef百问百答</a><time datetime="2024-03-04T12:31:47.000Z" title="发表于 2024-03-04 20:31:47">2024-03-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/04/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/" title="计算机网络：数据链路层">计算机网络：数据链路层</a><time datetime="2024-03-04T08:26:36.000Z" title="发表于 2024-03-04 16:26:36">2024-03-04</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://c3ngh-blog.oss-cn-hangzhou.aliyuncs.com/img/Topimg.heic')"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By C3ngH</div><div class="footer_custom_text">欢迎访问我的博客</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.12.0"></script></div></div></body></html>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.c3ngh.top">C3ngH</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.c3ngh.top/2024/03/04/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">https://www.c3ngh.top/2024/03/04/数据链路层/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.c3ngh.top" target="_blank">C3ngH's B10g</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></div><div class="post_share"><div class="social-share" data-image="https://c3ngh-blog.oss-cn-hangzhou.aliyuncs.com/img/C3ngH.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/03/04/C%E8%AF%AD%E8%A8%80%E9%83%A8%E5%88%86%E7%96%91%E6%83%91%E8%A7%A3%E7%AD%94/" title="C语言结构体/指针/typedef百问百答"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">C语言结构体/指针/typedef百问百答</div></div></a></div><div class="next-post pull-right"><a href="/2024/03/02/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%BB%BC%E5%90%88%E8%AE%AD%E7%BB%83/" title="程序设计综合训练"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">程序设计综合训练</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://c3ngh-blog.oss-cn-hangzhou.aliyuncs.com/img/C3ngH.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">C3ngH</div><div class="author-info__description">允许一切如其所是.</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/zch050217"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">2024.02.17 航_</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E9%93%BE%E6%8E%A5"><span class="toc-number">1.</span> <span class="toc-text"> 计算机网络相关链接：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">2.</span> <span class="toc-text"> 数据链路层的概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%82%B9%E5%AF%B9%E7%82%B9%E4%BF%A1%E9%81%93%E7%9A%84%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="toc-number">3.</span> <span class="toc-text"> 使用点对点信道的数据链路层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%B9%BF%E6%92%AD%E4%BF%A1%E9%81%93%E7%9A%84%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="toc-number">4.</span> <span class="toc-text"> 使用广播信道的数据链路层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E7%9A%84%E4%BA%92%E8%BF%9E%E8%AE%BE%E5%A4%87"><span class="toc-number">5.</span> <span class="toc-text"> 数据链路层的互连设备</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E6%A1%A5bridge%E5%92%8C%E4%BA%A4%E6%8D%A2%E6%9C%BAswitch%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">5.1.</span> <span class="toc-text"> 网桥（Bridge）和交换机（Switch）的工作原理：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BD%91%E6%A1%A5bridge%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">5.1.1.</span> <span class="toc-text"> 网桥（Bridge）的工作原理：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%9C%BAswitch%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">5.1.2.</span> <span class="toc-text"> 交换机（Switch）的工作原理：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%A8hub%E4%B8%8E%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">5.2.</span> <span class="toc-text"> 门（Hub）与交换机的区别：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%97%A8hub%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">5.2.1.</span> <span class="toc-text"> 门（Hub）的特点：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%9C%BA%E4%B8%8E%E9%97%A8%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">5.2.2.</span> <span class="toc-text"> 交换机与门的区别：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%81%E8%A3%85%E6%88%90%E5%B8%A7"><span class="toc-number">6.</span> <span class="toc-text"> 封装成帧</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%9B%AE%E7%9A%84%E5%92%8C%E4%BD%9C%E7%94%A8"><span class="toc-number">6.1.</span> <span class="toc-text"> 主要目的和作用：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4"><span class="toc-number">6.2.</span> <span class="toc-text"> 具体步骤：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%8F%E6%98%8E%E4%BC%A0%E8%BE%93"><span class="toc-number">7.</span> <span class="toc-text"> 透明传输</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%AE%E9%94%99%E6%A3%80%E6%B5%8B"><span class="toc-number">8.</span> <span class="toc-text"> 差错检测</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C"><span class="toc-number">8.1.</span> <span class="toc-text"> 奇偶校验：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E5%86%97%E4%BD%99%E6%A3%80%E6%B5%8Bcrc"><span class="toc-number">8.2.</span> <span class="toc-text"> 循环冗余检测（CRC）：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%A1%E9%AA%8C%E5%92%8Cchecksum"><span class="toc-number">8.3.</span> <span class="toc-text"> 校验和（Checksum）：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%B7%E6%98%8E%E7%A0%81hamming-code"><span class="toc-number">8.4.</span> <span class="toc-text"> 海明码（Hamming Code）：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93%E7%AD%89%E5%BE%85-%E5%81%9C%E6%AD%A2%E5%8D%8F%E8%AE%AE"><span class="toc-number">9.</span> <span class="toc-text"> 可靠传输：等待-停止协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%81%9C%E6%AD%A2-%E7%AD%89%E5%BE%85%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-number">9.1.</span> <span class="toc-text"> 停止-等待协议的基本原理：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sw%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">9.2.</span> <span class="toc-text"> SW协议的特点：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%82%B9%E5%AF%B9%E7%82%B9%E5%8D%8F%E8%AE%AEppp"><span class="toc-number">10.</span> <span class="toc-text"> 点对点协议PPP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AA%92%E4%BD%93%E6%8E%A5%E5%85%A5%E6%8E%A7%E5%88%B6"><span class="toc-number">11.</span> <span class="toc-text"> 媒体接入控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%8E%A5%E5%85%A5-csmaca%E5%8D%8F%E8%AE%AE%E5%92%8Carp%E5%8D%8F%E8%AE%AE"><span class="toc-number">12.</span> <span class="toc-text"> 随机接入-CSMA&#x2F;CA协议和ARP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#csmaca%E5%8D%8F%E8%AE%AE"><span class="toc-number">12.1.</span> <span class="toc-text"> CSMA&#x2F;CA协议：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#arp%E5%8D%8F%E8%AE%AE"><span class="toc-number">12.2.</span> <span class="toc-text"> ARP协议：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mac%E5%9C%B0%E5%9D%80%E5%92%8Cip%E5%9C%B0%E5%9D%80"><span class="toc-number">13.</span> <span class="toc-text"> MAC地址和IP地址</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mac%E5%9C%B0%E5%9D%80"><span class="toc-number">13.1.</span> <span class="toc-text"> MAC地址：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ip%E5%9C%B0%E5%9D%80"><span class="toc-number">13.2.</span> <span class="toc-text"> IP地址：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E7%BA%BF%E5%99%A8"><span class="toc-number">14.</span> <span class="toc-text"> 集线器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%89%B9%E7%82%B9"><span class="toc-number">14.1.</span> <span class="toc-text"> 主要特点：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">14.2.</span> <span class="toc-text"> 工作原理：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-number">15.</span> <span class="toc-text"> 以太网交换机</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%89%B9%E7%82%B9-2"><span class="toc-number">15.1.</span> <span class="toc-text"> 主要特点：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86-2"><span class="toc-number">15.2.</span> <span class="toc-text"> 工作原理：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91vlan"><span class="toc-number">16.</span> <span class="toc-text"> 虚拟局域网：VLAN</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%89%B9%E7%82%B9-3"><span class="toc-number">16.1.</span> <span class="toc-text"> 主要特点：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86-3"><span class="toc-number">16.2.</span> <span class="toc-text"> 工作原理：</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/24/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E5%9F%BA%E7%A1%80/" title="数据通信基础">数据通信基础</a><time datetime="2024-03-24T08:13:08.000Z" title="发表于 2024-03-24 16:13:08">2024-03-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%AE%BA/" title="计算机网络概论">计算机网络概论</a><time datetime="2024-03-22T14:11:05.000Z" title="发表于 2024-03-22 22:11:05">2024-03-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/18/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" title="PHP反序列化">PHP反序列化</a><time datetime="2024-03-18T10:46:54.000Z" title="发表于 2024-03-18 18:46:54">2024-03-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/07/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" title="如何正确上网">如何正确上网</a><time datetime="2024-03-07T14:08:42.000Z" title="发表于 2024-03-07 22:08:42">2024-03-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/04/C%E8%AF%AD%E8%A8%80%E9%83%A8%E5%88%86%E7%96%91%E6%83%91%E8%A7%A3%E7%AD%94/" title="C语言结构体/指针/typedef百问百答">C语言结构体/指针/typedef百问百答</a><time datetime="2024-03-04T12:31:47.000Z" title="发表于 2024-03-04 20:31:47">2024-03-04</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://c3ngh-blog.oss-cn-hangzhou.aliyuncs.com/img/Topimg.heic')"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By C3ngH</div><div class="footer_custom_text">欢迎访问我的博客</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.12.0"></script></div></div></body></html>
