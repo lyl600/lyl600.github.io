@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>IDA使用指南</title>
+      <link href="/2024/04/22/IDA%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"/>
+      <url>/2024/04/22/IDA%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</url>
+      
+        <content type="html"><![CDATA[<h3 id="ida-pro基本用法"><a class="markdownIt-Anchor" href="#ida-pro基本用法"></a> IDA Pro基本用法</h3><p>IDA Pro 通常会提供 <code>ida.exe</code> 与 <code>ida64.exe</code> 两个可执行程序，分别对应于逆向 <code>32</code> 位与 <code>64</code> 位程序。当我们需要使用 IDA Pro 分析某一可执行程序二进制文件时，我们需要根据程序指令集长度的不同选择使用不同的 <code>ida</code> 。</p><p>最简单的使用方式是将待逆向的二进制可执行文件直接拖放到 IDA 上，IDA 会自动识别文件类型，这一步通常不需要做改动，直接点击 OK 即可</p><p><img src="https://c3ngh-blog.oss-cn-hangzhou.aliyuncs.com/img/ida_load.png" alt="ida_load" /></p><p>接下来我们就会看到这样一个界面：</p><p><img src="https://c3ngh-blog.oss-cn-hangzhou.aliyuncs.com/img/ida_ui.png" alt="ida_ui" /></p><ul><li><code>Function Windows</code> ：IDA 所识别出来的函数列表，通过该目录可以直接跳转到对应函数</li><li><code>IDA-View</code> ：以汇编形式呈现的由 IDA 进行反编译所得的单个函数结果，默认是以由基本块构成的控制流图的形式进行展示，也可以通过 <code>空格</code> 键切换到内存布局中的原始汇编代码</li><li><code>Hex View</code> ： 二进制文件的原始数据视图</li><li><code>Structures</code> ：由 IDA 所识别出来的程序中可能存在的结构体信息</li><li><code>Enums</code> ：由 IDA 所识别出来的程序中可能存在的枚举信息</li><li><code>Imports</code> ： 该二进制文件运行时可能需要从外部导入的符号</li><li><code>Exports</code> ： 该二进制文件可以被导出到外部的符号</li></ul><h3 id="函数反编译"><a class="markdownIt-Anchor" href="#函数反编译"></a> 函数反编译</h3><p>除了反汇编以外，IDA 也支持将汇编代码反编译为 C/C++ 形式的源代码，我们只需要在待反编译的函数位置按下 <code>F5</code> 即可获得反编译后的程序代码：</p><p><img src="https://c3ngh-blog.oss-cn-hangzhou.aliyuncs.com/img/ida_discompile.png" alt="ida_discompile" /></p><p>有的时候 IDA 对于函数范围的识别可能会有一定错误，从而导致反编译结果出现偏差，此时我们可以在 <code>IDA-View</code> 窗口中的函数开头按下 <code>alt+p</code> 重新定义函数范围，或是先按下 <code>u</code> 取消原有定义后再框选函数范围后重新按下 <code>p</code> 进行定义：</p><p><img src="https://c3ngh-blog.oss-cn-hangzhou.aliyuncs.com/img/ida_edit_func.png" alt="ida_edit_func" /></p><p>有的时候因为代码混淆等原因导致 IDA 无法建立函数：</p><p><img src="https://c3ngh-blog.oss-cn-hangzhou.aliyuncs.com/img/ida_fail_to_discompile.png" alt="ida_fail_to_discompile" /></p><p>当我们完成对函数识别的修复之后，我们可以在函数开头按下 <code>p</code> 让 IDA 重新自动识别函数，或是框选属于该函数的汇编代码之后再按下 <code>p</code> 让 IDA 重新自动识别函数：<img src="https://c3ngh-blog.oss-cn-hangzhou.aliyuncs.com/img/ida_reidentify_func1.png" alt="ida_reidentify_func1" /></p><p><img src="https://c3ngh-blog.oss-cn-hangzhou.aliyuncs.com/img/ida_reidentify_func2.png" alt="ida_reidentify_func2" /></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> CTF </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Re </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>软件逆向工程简介</title>
+      <link href="/2024/04/22/%E8%BD%AF%E4%BB%B6%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E7%AE%80%E4%BB%8B/"/>
+      <url>/2024/04/22/%E8%BD%AF%E4%BB%B6%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E7%AE%80%E4%BB%8B/</url>
+      
+        <content type="html"><![CDATA[<h3 id="常规逆向流程"><a class="markdownIt-Anchor" href="#常规逆向流程"></a> 常规逆向流程</h3><ol><li>使用<code>strings/file/binwalk/IDA</code>等静态分析工具收集信息，并根据这些静态信息进行<code>google/github</code>搜索</li><li>研究程序的保护方法，如代码混淆，保护壳及反调试等技术，并设法破除或绕过保护</li><li>反汇编目标软件，快速定位到关键代码进行分析</li><li>结合动态调试，验证自己的初期猜想，在分析的过程中理清程序功能</li><li>针对程序功能，写出对应脚本，求解出 flag</li></ol><h3 id="代码混淆"><a class="markdownIt-Anchor" href="#代码混淆"></a> 代码混淆</h3><p>比如使用<code>OLLVM</code>，<code>movfuscator</code>，<code>花指令</code>，<code>虚拟化</code>及<code>SMC</code>等工具技术对代码进行混淆，使得程序分析十分困难。</p><p>那么对应的也有反混淆技术，最主要的目的就是复原控制流。比如<code>模拟执行</code>和<code>符号执行</code></p><h3 id="保护壳"><a class="markdownIt-Anchor" href="#保护壳"></a> 保护壳</h3><p>保护壳类型有许多，简单的压缩壳可以归类为如下几种</p><ul><li><p>unpack -&gt; execute</p><p>直接将程序代码全部解压到内存中再继续执行程序代码</p></li><li><p>unpack -&gt; execute -&gt; unpack -&gt; execute …</p><p>解压部分代码，再边解压边执行</p></li><li><p>unpack -&gt; [decoder | encoded code] -&gt; decode -&gt; execute</p><p>程序代码有过编码，在解压后再运行函数将真正的程序代码解码执行</p></li></ul><p>对于脱壳也有相关的方法，比如<code>单步调试法</code>，<code>ESP定律</code>等等</p><h3 id="反调试"><a class="markdownIt-Anchor" href="#反调试"></a> 反调试</h3><p>反调试意在通过检测调试器等方法避免程序被调试分析。比如使用一些 API 函数如<code>IsDebuggerPresent</code>检测调试器，使用<code>SEH异常处理</code>，时间差检测等方法。也可以通过覆写调试端口、自调试等方法进行保护。</p><h3 id="非常规逆向思路"><a class="markdownIt-Anchor" href="#非常规逆向思路"></a> 非常规逆向思路</h3><p>非常规逆向题设计的题目范围非常之广，可以是任意架构的任意格式文件。</p><ul><li>lua/python/java/lua-jit/haskell/applescript/js/solidity/webassembly/etc…</li><li>firmware/raw bin/etc…</li><li>chip8/avr/clemency/risc-v/etc.</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> CTF </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Re </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>停更通知</title>
       <link href="/2024/04/15/STOP/"/>
       <url>/2024/04/15/STOP/</url>
