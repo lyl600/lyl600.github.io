@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>hexo使用指南</title>
+      <link href="/2024/06/18/begin/"/>
+      <url>/2024/06/18/begin/</url>
+      
+        <content type="html"><![CDATA[<h3 id="网站更新"><a class="markdownIt-Anchor" href="#网站更新"></a> 网站更新</h3><p>先开启clash代理</p><p>在E盘hexo文件夹右键 open git bash here 进入git窗口 输入以下三行命令</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo cl #清除缓存</span><br><span class="line">hexo g #渲染</span><br><span class="line">hexo d #上传</span><br></pre></td></tr></table></figure><h3 id="写文章"><a class="markdownIt-Anchor" href="#写文章"></a> 写文章</h3><p>在E盘hexo文件夹右键 open git bash here 进入git窗口 输入</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;文章名&quot;</span><br></pre></td></tr></table></figure><p>文章使用Markdown格式，存在hexo/source/_post文件夹下 在该目录打开即可编辑文章</p><p>文章开头的是ymal代码块 title是标题 以此类推</p><h3 id="主题配置"><a class="markdownIt-Anchor" href="#主题配置"></a> 主题配置</h3><p>有两处要修改</p><p>根目录下的config.yml文件</p><p>theme/butterfly主题下的config.yml文件</p><p>所有要修改的地方我已经用注释标出 vscode ctrl+f 检索 “要修改” 即可 用处也写了</p><p>主题文档<a href="https://butterfly.js.org/">https://butterfly.js.org/</a></p><h3 id="markdown语法及typora用法"><a class="markdownIt-Anchor" href="#markdown语法及typora用法"></a> Markdown语法及Typora用法</h3><p><a href="https://www.typora.net/1249.html">https://www.typora.net/1249.html</a> 网上很多 搜一下即可</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2024/06/18/hello-world/"/>
       <url>/2024/06/18/hello-world/</url>
